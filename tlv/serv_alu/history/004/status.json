@@ -1,0 +1,5 @@
+{
+    "task": "Parameters",
+    "fev.sh": "none",
+    "llm": "Created parameter configurations: default (W=1) and W=4 to test both branches of generate condition. Running FEV to test all parameter sets."
+}

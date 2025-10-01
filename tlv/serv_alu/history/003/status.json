@@ -1,0 +1,5 @@
+{
+    "task": "Signal Matching",
+    "fev.sh": "none",
+    "llm": "Added all internal signals to fev_full.eqy match section. Running FEV to checkpoint."
+}

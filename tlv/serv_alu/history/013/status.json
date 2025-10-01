@@ -1,0 +1,5 @@
+{
+    "task": "If/Else and Case to Ternary",
+    "fev.sh": "none",
+    "llm": "If/Else and Case to Ternary task: Converted if statement to ternary expression: '$$cmp_reg <= i_en ? o_cmp : $cmp_reg;'. Testing conversion."
+}

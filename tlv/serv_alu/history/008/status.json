@@ -1,0 +1,5 @@
+{
+  "task": "Signals to Pipesignals",
+  "fev.sh": "2: SandPiper failed on wip.tlv",
+  "llm": "Using improved task instructions with proper pipeline path format. Updated fev.eqy to use |default<>0$rrs1_sx format. Testing single signal conversion with correct match syntax."
+}

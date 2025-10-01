@@ -1,0 +1,5 @@
+{
+    "task": "Non-vector Signals",
+    "fev.sh": "none",
+    "llm": "Non-vector Signals task: Analyzed design - all internal signals are simple boolean or bit-vector types, already properly converted to pipesignals. No complex types, signed signals, or non-vector signals requiring special handling found."
+}

@@ -1,0 +1,5 @@
+{
+  "task": "Signals to Pipesignals",
+  "fev.sh": "3: Incremental FEV failed",
+  "llm": "Added explicit internal signal match for cmp_reg -> DEFAULT_cmp_reg_a0 to resolve state element mismatch. Testing if this resolves the FEV UNKNOWN partitions."
+}

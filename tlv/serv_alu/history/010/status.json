@@ -1,0 +1,5 @@
+{
+  "task": "Signals to Pipesignals",
+  "fev.sh": "2: SandPiper failed on wip.tlv",
+  "llm": "Fixed SandPiper errors: converted add_carry_r, updated usages of result_eq/result_lt/result_add. Combined multiple assignments for add_carry_r. Testing fixes."
+}
