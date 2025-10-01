@@ -1,0 +1,5 @@
+{
+  "task": "Reset and Clock",
+  "fev.sh": "3: Incremental FEV failed",
+  "llm": "Reset and Clock task completed. Clock is named 'clk' (correct). Reset 'rst' is synchronous and positively asserted (compatible with TL-Verilog). No changes needed."
+}
