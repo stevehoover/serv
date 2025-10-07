@@ -1,0 +1,61 @@
+############################################
+# GOLDEN DESIGN
+############################################
+[gold]
+read_verilog -sv -formal prepared.sv
+
+############################################
+# UPDATED / GATE DESIGN
+############################################
+[gate]
+read_verilog -sv -formal wip.sv
+
+[script]
+chparam -set WITH_CSR 0
+prep -top serv_ctrl -flatten
+setundef -anyseq
+#sim -w -clock clk -reset reset -rstlen 10 -n 10
+
+
+############################################
+# MATCHING / PARTITIONING HINTS
+############################################
+# The below section should be formatted as:
+# [match serv_ctrl]
+# gold-match <gold_signal> <gate_signal>
+# ...
+# And should be followed by a blank line, marking the end of the section.
+# Gate names may use TL-Verilog pipesignal references, which will be mapped by `fev.sh`.
+[match serv_ctrl]
+gold-match pc_plus_4 pc_plus_4
+gold-match pc_plus_4_cy pc_plus_4_cy
+gold-match pc_plus_4_cy_r pc_plus_4_cy_r
+gold-match pc_plus_4_cy_r_w pc_plus_4_cy_r_w
+gold-match pc_plus_offset pc_plus_offset
+gold-match pc_plus_offset_cy pc_plus_offset_cy
+gold-match pc_plus_offset_cy_r pc_plus_offset_cy_r
+gold-match pc_plus_offset_cy_r_w pc_plus_offset_cy_r_w
+gold-match pc_plus_offset_aligned pc_plus_offset_aligned
+gold-match plus_4 plus_4
+gold-match pc pc
+gold-match new_pc new_pc
+gold-match offset_a offset_a
+gold-match offset_b offset_b
+
+[collect *]
+# Let EQY partition automatically.
+# If you want to force grouping by register name patterns, you can uncomment:
+# group .*
+
+############################################
+# STRATEGIES
+############################################
+# Disabled due to https://github.com/YosysHQ/eqy/issues/83
+#[strategy fast_sat]
+#use sat
+#depth 10
+
+[strategy sby_seq]
+use sby
+depth 20
+engine smtbmc

@@ -1,0 +1,5 @@
+{
+    "task": "TLV Macro",
+    "fev.sh": "none",
+    "llm": "Need to restructure code to define logic in a TLV macro that the module instantiates. This provides reusability for the same logic."
+}

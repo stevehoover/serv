@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "0: Refactoring step (not task) successful!",
+  "llm": "✅ Successfully migrated most combinational logic to TLV expressions. Remaining in \\SV_plus: wire assignments, initial block, and always block. Need to assess what can be migrated."
+}

@@ -1,0 +1,5 @@
+{
+  "task": "Consolidate the SV-TLV Interface",
+  "fev.sh": "2: SandPiper failed for wip.tlv -> wip.sv",
+  "llm": "Starting new task: Need to consolidate interface between Verilog signals and TL-Verilog pipesignals. Will add input assignments at top and output assignments at end of TLV region."
+}

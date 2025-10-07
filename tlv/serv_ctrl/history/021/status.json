@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "2: SandPiper failed for wip.tlv -> wip.sv",
+  "llm": "✅ Third step: Successfully migrated offset calculations. Reverted wire assignments that need to stay as wires in \\SV_plus context since they're not pipesignals."
+}

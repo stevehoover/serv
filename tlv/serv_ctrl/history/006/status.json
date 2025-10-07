@@ -1,0 +1,5 @@
+{
+    "task": "Naming Conventions",
+    "fev.sh": "3: Incremental FEV failed",
+    "llm": "FEV failed because intermediate signal assignments inside SV_plus block reference module inputs. Need to fix the intermediate signal approach."
+}
