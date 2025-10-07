@@ -1,0 +1,5 @@
+{
+    "task": "Non-vector Signals",
+    "fev.sh": "none",
+    "llm": "✅ COMPLETED: No non-vector signals found in this design. All signals are standard bit-vectors: single-bit wires/regs or parameterized vectors [B:0]/[3:0]/[1:0]. No signed, struct, enum, or complex types detected. No type declarations with ** prefix needed. Task complete as all signals are already standard Verilog bit-vectors."
+}

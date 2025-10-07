@@ -1,0 +1,5 @@
+{
+  "task": "If/Else and Case to Ternary",
+  "fev.sh": "3: Failed to map TLV pipesignals to Verilog in fev.eqy. (See work in ./tmp/kYsyi/match)",
+  "llm": "Starting case-to-ternary conversion task. Need to convert the large case statement in always_comb block to ternary expressions."
+}

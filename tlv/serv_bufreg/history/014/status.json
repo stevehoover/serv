@@ -1,0 +1,5 @@
+{
+  "task": "Signals to Pipesignals",
+  "fev.sh": "4: Full FEV (fev_full) failed",
+  "llm": "Successfully converted major signals to pipesignals. Incremental FEV passes but full FEV failing on pipesignal path mapping. Working on correcting match section syntax in fev_full*.eqy files to use proper $$ assignment references instead of $ read references for pipesignals. Need to fix cc, qq, cc_r pipesignal path mapping."
+}

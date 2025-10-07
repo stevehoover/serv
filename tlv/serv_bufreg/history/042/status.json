@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "4: Full FEV (fev_full_MDU_1_W_4) failed",
+  "llm": "ALMOST THERE! Fixed signal matching issues step by step: eliminated intermediate lsb_w_eq_4 wire, matched basic signals (c->DEFAULT_cc_a0, data->DEFAULT_data_a0, etc), matched replicated scope signals. Now down to logic equivalence issue: fev_full_MDU_1_W_4 shows FAIL (not UNKNOWN), indicates matching works but <<1$lsb logic differs from original always@(posedge clk) lsb assignment. Need to investigate if <<1 staging semantics create different behavior than direct register assignment. All core TLV conversion completed successfully, incremental FEV passes."
+}

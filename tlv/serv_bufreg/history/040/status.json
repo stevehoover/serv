@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "4: Full FEV (fev_full_MDU_1_W_4) failed",
+  "llm": "DATA PIPESIGNAL ISSUE IDENTIFIED: User spotted that data wasn't properly converted to pipesignal. Applied two-step approach: Step 1 (unify data expressions in SV_plus) - PASSES incremental FEV. Step 2 (convert to TLV with <<1) - FAILED due to self-reference issue ($data used in assignment defining $data). Need to resolve dependency order or use different TLV constructs for data assignments. Progress: cc_r successfully converted, data_tail/lsb in replicated scopes work. Main issue: data register assignments complex due to conditional logic and self-references."
+}

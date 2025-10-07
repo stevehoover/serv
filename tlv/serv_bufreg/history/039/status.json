@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "2: SandPiper failed for wip.tlv -> wip.sv",
+  "llm": "BREAKTHROUGH: Fixed SandPiper clock naming issue! Changed 'clock' to 'clk' in SV_plus blocks. cc_r conversion now works: <<1$cc_r[B:0] = {{B{1'b0}}, $cc & *i_en} passes incremental FEV. Two-step approach succeeded: Step 1 (unify) + Step 2 (TLV migrate) both work when clock named 'clk'. New issue: Full FEV fails on fev_full_MDU_1_W_4 with different signals (muxdata, muxout, shift_amount, data_tail, lsb mismatches). Need to continue migration of other always@ blocks."
+}

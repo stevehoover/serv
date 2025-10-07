@@ -1,0 +1,5 @@
+{
+    "task": "Non-vector Signals",
+    "fev.sh": "none",
+    "llm": "Starting Non-vector Signals task. Need to identify and convert signals with complex types or signed values to use proper TL-Verilog pipesignal syntax with type declarations."
+}

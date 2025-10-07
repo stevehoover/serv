@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "3: Incremental FEV failed",
+  "llm": "MIGRATING TO TLV: Converting always @(posedge clock) blocks to TLV expressions with <<1 syntax. Issue found: replicated scope assignments use $$lsb and $$data_tail on RHS creating 'explicit assigned signal' errors. Need to handle feedback patterns in conditional assignments like '$$lsb <= condition ? new_value : $lsb' properly. Working on systematic conversion of generate block logic to TLV expressions."
+}

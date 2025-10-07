@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "3: Incremental FEV failed",
+  "llm": "Starting migration of Verilog-style expressions from \\SV_plus block to \\TLV assignments. Need to convert assign statements and always_ff assignments to TLV syntax."
+}

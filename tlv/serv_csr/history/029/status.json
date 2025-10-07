@@ -1,0 +1,5 @@
+{
+  "task": "Convert State Signals to TLV",
+  "fev.sh": "3: Incremental FEV failed",
+  "llm": "✅ Reverted to working state. Now starting incremental conversion of state signals to TLV. Will convert simplest registers first (timer_irq_r), verify with FEV, then proceed step by step. Complex mcause3dot0 logic will be left for last due to interdependencies."
+}

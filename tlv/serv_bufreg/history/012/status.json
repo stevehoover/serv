@@ -1,0 +1,5 @@
+{
+  "task": "Generate If to For",
+  "fev.sh": "4: Full FEV (fev_full_MDU_1_W_4) failed",
+  "llm": "Converted first generate block and W==1 branch to for loops successfully. However, FEV fails for W==4 parameter because only one branch of the if/else is converted to for loop while the other remains as if. Need to convert both branches consistently or take different approach."
+}

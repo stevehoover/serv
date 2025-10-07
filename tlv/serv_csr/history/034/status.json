@@ -1,0 +1,5 @@
+{
+  "task": "Convert State Signals to TLV",
+  "fev.sh": "3: Incremental FEV failed",
+  "llm": "Converting mie_mtie using explicit reset handling pattern. Added TLV pipesignal, updated timer_irq calculation, removed SV_plus register. Issue: EQY match line not working correctly - 'Cannot find second entity in mie_mtie DEFAULT_mie_mtie_a1' indicates signal naming mismatch."
+}

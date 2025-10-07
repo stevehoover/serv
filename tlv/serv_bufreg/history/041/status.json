@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "4: Failed to map TLV pipesignals to Verilog in fev_full_MDU_1_W_4.eqy. (See work in ./tmp/s4RN9/match)",
+  "llm": "MAJOR BREAKTHROUGH: Successfully converted data to pipesignal! Fixed hierarchical reference issue with |default$data in replicated scope. Two-step approach complete: Step 1 (unify data expressions) + Step 2 (TLV migration with <<1$data) both PASS incremental FEV. All major assignments now in TLV: cc_r, data, data_tail, lsb all converted to <<1 pipesignals. Remaining issue: Full FEV fails on signal naming mismatches between gold (generate blocks) vs gate (TLV structure) - this is expected during migration. Key insight: Within replicated scopes, need |default$data not just $data."
+}

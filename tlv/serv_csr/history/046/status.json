@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "3: Incremental FEV failed",
+  "llm": "Nearly complete with TLV expression migration. All state signals converted to TLV pipesignals, file structured with proper TLV format, and main logic in TLV context. Remaining: clean up SV_plus blocks and finalize pure TLV expressions."
+}
