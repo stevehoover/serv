@@ -1,0 +1,5 @@
+{
+    "task": "Reset and Clock",
+    "fev.sh": "none",
+    "llm": "Reset and Clock task: Module already uses proper 'clk' signal name and has no reset signals. No changes needed."
+}

@@ -1,0 +1,5 @@
+{
+    "task": "Avoid Split Assignments",
+    "fev.sh": "none",
+    "llm": "Combined split assignments for o_wb_sel[3:0] into single concatenated assignment to avoid TL-Verilog restrictions on split assignments."
+}

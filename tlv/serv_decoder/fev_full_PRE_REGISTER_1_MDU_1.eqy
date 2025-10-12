@@ -1,0 +1,101 @@
+############################################
+# GOLDEN DESIGN
+############################################
+[gold]
+read_verilog -sv -formal prepared.sv
+
+############################################
+# UPDATED / GATE DESIGN
+############################################
+[gate]
+read_verilog -sv -formal wip.sv
+
+[script]
+chparam -set PRE_REGISTER 1 -set MDU 1
+prep -top serv_decode -flatten
+setundef -anyseq
+#sim -w -clock clk -reset reset -rstlen 10 -n 10
+
+
+############################################
+# MATCHING / PARTITIONING HINTS
+############################################
+# The below section should be formatted as:
+# [match serv_decode]
+# gold-match <gold_signal> <gate_signal>
+# ...
+# And should be followed by a blank line, marking the end of the section.
+# Gate names may use TL-Verilog pipesignal references, which will be mapped by `fev.sh`.
+[match serv_decode]
+gold-match opcode |default<>0$opcode
+gold-match funct3 |default<>0$funct3
+gold-match op20 |default<>0$op20
+gold-match op21 |default<>0$op21
+gold-match op22 |default<>0$op22
+gold-match op26 |default<>0$op26
+gold-match imm25 |default<>0$imm25
+gold-match imm30 |default<>0$imm30
+gold-match co_mdu_op co_mdu_op
+gold-match co_two_stage_op co_two_stage_op
+gold-match co_shift_op co_shift_op
+gold-match co_branch_op co_branch_op
+gold-match co_dbus_en co_dbus_en
+gold-match co_mtval_pc co_mtval_pc
+gold-match co_mem_word co_mem_word
+gold-match co_rd_alu_en co_rd_alu_en
+gold-match co_rd_mem_en co_rd_mem_en
+gold-match co_ext_funct3 co_ext_funct3
+gold-match co_bufreg_rs1_en co_bufreg_rs1_en
+gold-match co_bufreg_imm_en co_bufreg_imm_en
+gold-match co_bufreg_clr_lsb co_bufreg_clr_lsb
+gold-match co_cond_branch co_cond_branch
+gold-match co_ctrl_utype co_ctrl_utype
+gold-match co_ctrl_jal_or_jalr co_ctrl_jal_or_jalr
+gold-match co_ctrl_pc_rel co_ctrl_pc_rel
+gold-match co_rd_op co_rd_op
+gold-match co_sh_right co_sh_right
+gold-match co_bne_or_bge co_bne_or_bge
+gold-match csr_op csr_op
+gold-match co_ebreak co_ebreak
+gold-match co_ctrl_mret co_ctrl_mret
+gold-match co_e_op co_e_op
+gold-match co_bufreg_sh_signed co_bufreg_sh_signed
+gold-match co_alu_sub co_alu_sub
+gold-match csr_valid csr_valid
+gold-match co_rd_csr_en co_rd_csr_en
+gold-match co_csr_en co_csr_en
+gold-match co_csr_mstatus_en co_csr_mstatus_en
+gold-match co_csr_mie_en co_csr_mie_en
+gold-match co_csr_mcause_en co_csr_mcause_en
+gold-match co_csr_source co_csr_source
+gold-match co_csr_d_sel co_csr_d_sel
+gold-match co_csr_imm_en co_csr_imm_en
+gold-match co_csr_addr co_csr_addr
+gold-match co_alu_cmp_eq co_alu_cmp_eq
+gold-match co_alu_cmp_sig co_alu_cmp_sig
+gold-match co_mem_cmd co_mem_cmd
+gold-match co_mem_signed co_mem_signed
+gold-match co_mem_half co_mem_half
+gold-match co_alu_bool_op co_alu_bool_op
+gold-match co_immdec_ctrl co_immdec_ctrl
+gold-match co_immdec_en co_immdec_en
+gold-match co_alu_rd_sel co_alu_rd_sel
+gold-match co_op_b_source co_op_b_source
+
+[collect *]
+# Let EQY partition automatically.
+# If you want to force grouping by register name patterns, you can uncomment:
+# group .*
+
+############################################
+# STRATEGIES
+############################################
+# Disabled due to https://github.com/YosysHQ/eqy/issues/83
+#[strategy fast_sat]
+#use sat
+#depth 10
+
+[strategy sby_seq]
+use sby
+depth 20
+engine smtbmc

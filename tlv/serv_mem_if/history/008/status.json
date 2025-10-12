@@ -1,0 +1,5 @@
+{
+    "task": "Generate If to For",
+    "fev.sh": "none",
+    "llm": "No generate if blocks found in this module. Only parameter-dependent logic is the misalign assignment using WITH_CSR parameter, which doesn't require generate block conversion. Task not applicable."
+}

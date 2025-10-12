@@ -1,0 +1,355 @@
+\TLV_version 1d: tl-x.org
+\SV
+module serv_debug
+  #(parameter W = 1,
+    parameter RESET_PC = 0,
+    //Internally calculated. Do not touch
+    parameter B=W-1)
+   (
+`ifdef RISCV_FORMAL
+    output reg        rvfi_valid = 1'b0,
+    output reg [63:0]  rvfi_order = 64'd0,
+    output reg [31:0]  rvfi_insn = 32'd0,
+    output reg        rvfi_trap = 1'b0,
+    output reg        rvfi_halt = 1'b0,  // Not used
+    output reg        rvfi_intr = 1'b0,  // Not used
+    output reg [1:0]   rvfi_mode = 2'b11, // Not used
+    output reg [1:0]   rvfi_ixl = 2'b01,  // Not used
+    output reg [4:0]   rvfi_rs1_addr,
+    output reg [4:0]   rvfi_rs2_addr,
+    output reg [31:0]  rvfi_rs1_rdata,
+    output reg [31:0]  rvfi_rs2_rdata,
+    output reg [4:0]   rvfi_rd_addr,
+    output wire [31:0] rvfi_rd_wdata,
+    output reg [31:0]  rvfi_pc_rdata,
+    output wire [31:0]  rvfi_pc_wdata,
+    output reg [31:0]  rvfi_mem_addr,
+    output reg [3:0]   rvfi_mem_rmask,
+    output reg [3:0]   rvfi_mem_wmask,
+    output reg [31:0]  rvfi_mem_rdata,
+    output reg [31:0]  rvfi_mem_wdata,
+    input wire [31:0]  i_dbus_adr,
+    input wire [31:0]  i_dbus_dat,
+    input wire [3:0]   i_dbus_sel,
+    input wire        i_dbus_we,
+    input wire [31:0]  i_dbus_rdt,
+    input wire        i_dbus_ack,
+    input wire        i_ctrl_pc_en,
+    input wire  [B:0]      rs1,
+    input wire [B:0]          rs2,
+    input wire [4:0]   rs1_addr,
+    input wire [4:0]   rs2_addr,
+    input wire [3:0]   immdec_en,
+    input wire        rd_en,
+    input wire        trap,
+    input wire        i_rf_ready,
+    input wire        i_ibus_cyc,
+    input wire        two_stage_op,
+    input wire        init,
+    input wire [31:0]  i_ibus_adr,
+`endif
+    input wire        i_clk,
+    input wire        i_rst,
+    input wire [31:0] i_ibus_rdt,
+    input wire        i_ibus_ack,
+    input wire [4:0]  i_rd_addr,
+    input wire        i_cnt_en,
+    input wire [B:0]  i_csr_in,
+    input wire        i_csr_mstatus_en,
+    input wire        i_csr_mie_en,
+    input wire        i_csr_mcause_en,
+    input wire        i_csr_en,
+    input wire [1:0]  i_csr_addr,
+    input wire        i_wen0,
+    input wire [B:0]  i_wdata0,
+    input wire        i_cnt_done);
+
+\TLV
+   |default
+      @0
+         \SV_plus
+            reg                update_rd = 1'b0;
+               reg                update_mscratch;
+               reg                update_mtvec;
+               reg                update_mepc;
+               reg                update_mtval;
+               reg                update_mstatus;
+               reg                update_mie;
+               reg                update_mcause;
+
+               reg [31:0]         dbg_rd = 32'hxxxxxxxx;
+               reg [31:0]         dbg_csr = 32'hxxxxxxxx;
+               reg [31:0]         dbg_mstatus  = 32'hxxxxxxxx;
+               reg [31:0]         dbg_mie      = 32'hxxxxxxxx;
+               reg [31:0]         dbg_mcause   = 32'hxxxxxxxx;
+               reg [31:0]         dbg_mscratch = 32'hxxxxxxxx;
+               reg [31:0]         dbg_mtvec    = 32'hxxxxxxxx;
+               reg [31:0]         dbg_mepc     = 32'hxxxxxxxx;
+               reg [31:0]         dbg_mtval    = 32'hxxxxxxxx;
+               reg [31:0]         xx1  = 32'hxxxxxxxx;
+               reg [31:0]         xx2  = 32'hxxxxxxxx;
+               reg [31:0]         xx3  = 32'hxxxxxxxx;
+               reg [31:0]         xx4  = 32'hxxxxxxxx;
+               reg [31:0]         xx5  = 32'hxxxxxxxx;
+               reg [31:0]         xx6  = 32'hxxxxxxxx;
+               reg [31:0]         xx7  = 32'hxxxxxxxx;
+               reg [31:0]         xx8  = 32'hxxxxxxxx;
+               reg [31:0]         xx9  = 32'hxxxxxxxx;
+               reg [31:0]         xx10 = 32'hxxxxxxxx;
+               reg [31:0]         xx11 = 32'hxxxxxxxx;
+               reg [31:0]         xx12 = 32'hxxxxxxxx;
+               reg [31:0]         xx13 = 32'hxxxxxxxx;
+               reg [31:0]         xx14 = 32'hxxxxxxxx;
+               reg [31:0]         xx15 = 32'hxxxxxxxx;
+               reg [31:0]         xx16 = 32'hxxxxxxxx;
+               reg [31:0]         xx17 = 32'hxxxxxxxx;
+               reg [31:0]         xx18 = 32'hxxxxxxxx;
+               reg [31:0]         xx19 = 32'hxxxxxxxx;
+               reg [31:0]         xx20 = 32'hxxxxxxxx;
+               reg [31:0]         xx21 = 32'hxxxxxxxx;
+               reg [31:0]         xx22 = 32'hxxxxxxxx;
+               reg [31:0]         xx23 = 32'hxxxxxxxx;
+               reg [31:0]         xx24 = 32'hxxxxxxxx;
+               reg [31:0]         xx25 = 32'hxxxxxxxx;
+               reg [31:0]         xx26 = 32'hxxxxxxxx;
+               reg [31:0]         xx27 = 32'hxxxxxxxx;
+               reg [31:0]         xx28 = 32'hxxxxxxxx;
+               reg [31:0]         xx29 = 32'hxxxxxxxx;
+               reg [31:0]         xx30 = 32'hxxxxxxxx;
+               reg [31:0]         xx31 = 32'hxxxxxxxx;
+
+               // TL-Verilog standard clock and reset signals
+               wire clk = i_clk;
+               wire reset = i_rst;
+
+               always @(posedge i_clk) begin
+                  update_rd <= i_cnt_done & i_wen0;
+
+                  if (i_wen0)
+                    dbg_rd <= {i_wdata0,dbg_rd[31:W]};
+
+                  //End of instruction that writes to RF
+                  if (update_rd) begin
+                     case (i_rd_addr)
+                       5'd1  : xx1  <= dbg_rd;
+                       5'd2  : xx2  <= dbg_rd;
+                       5'd3  : xx3  <= dbg_rd;
+                       5'd4  : xx4  <= dbg_rd;
+                       5'd5  : xx5  <= dbg_rd;
+                       5'd6  : xx6  <= dbg_rd;
+                       5'd7  : xx7  <= dbg_rd;
+                       5'd8  : xx8  <= dbg_rd;
+                       5'd9  : xx9  <= dbg_rd;
+                       5'd10 : xx10 <= dbg_rd;
+                       5'd11 : xx11 <= dbg_rd;
+                       5'd12 : xx12 <= dbg_rd;
+                       5'd13 : xx13 <= dbg_rd;
+                       5'd14 : xx14 <= dbg_rd;
+                       5'd15 : xx15 <= dbg_rd;
+                       5'd16 : xx16 <= dbg_rd;
+                       5'd17 : xx17 <= dbg_rd;
+                       5'd18 : xx18 <= dbg_rd;
+                       5'd19 : xx19 <= dbg_rd;
+                       5'd20 : xx20 <= dbg_rd;
+                       5'd21 : xx21 <= dbg_rd;
+                       5'd22 : xx22 <= dbg_rd;
+                       5'd23 : xx23 <= dbg_rd;
+                       5'd24 : xx24 <= dbg_rd;
+                       5'd25 : xx25 <= dbg_rd;
+                       5'd26 : xx26 <= dbg_rd;
+                       5'd27 : xx27 <= dbg_rd;
+                       5'd28 : xx28 <= dbg_rd;
+                       5'd29 : xx29 <= dbg_rd;
+                       5'd30 : xx30 <= dbg_rd;
+                       5'd31 : xx31 <= dbg_rd;
+                       default : ;
+                     endcase
+                  end
+
+                  update_mscratch <= i_cnt_done & i_csr_en & (i_csr_addr == 2'b00);
+                  update_mtvec    <= i_cnt_done & i_csr_en & (i_csr_addr == 2'b01);
+                  update_mepc     <= i_cnt_done & i_csr_en & (i_csr_addr == 2'b10);
+                  update_mtval    <= i_cnt_done & i_csr_en & (i_csr_addr == 2'b11);
+                  update_mstatus  <= i_cnt_done & i_csr_mstatus_en;
+                  update_mie      <= i_cnt_done & i_csr_mie_en;
+                  update_mcause   <= i_cnt_done & i_csr_mcause_en;
+
+                  if (i_cnt_en)
+                    dbg_csr <= {i_csr_in, dbg_csr[31:W]};
+
+                  if (update_mscratch) dbg_mscratch <= dbg_csr;
+                  if (update_mtvec)    dbg_mtvec    <= dbg_csr;
+                  if (update_mepc )    dbg_mepc     <= dbg_csr;
+                  if (update_mtval)    dbg_mtval    <= dbg_csr;
+                  if (update_mstatus)  dbg_mstatus  <= dbg_csr;
+                  if (update_mie)      dbg_mie      <= dbg_csr;
+                  if (update_mcause)   dbg_mcause   <= dbg_csr;
+               end
+
+               reg lui, auipc, jal, jalr, beq, bne, blt, bge, bltu, bgeu, lb, lh, lw, lbu, lhu, sb, sh, sw, addi, slti, sltiu, xori, ori, andi, slli, srli, srai, add, sub, sll, slt, sltu, xor_op, srl, sra, or_op, and_op, fence, ecall, ebreak;
+               reg csrrw, csrrs, csrrc, csrrwi, csrrsi, csrrci;
+               reg other;
+
+               always @(posedge i_clk) begin
+                  if (i_ibus_ack) begin
+                     lui    <= 1'b0;
+                     auipc  <= 1'b0;
+                     jal    <= 1'b0;
+                     jalr   <= 1'b0;
+                     beq    <= 1'b0;
+                     bne    <= 1'b0;
+                     blt    <= 1'b0;
+                     bge    <= 1'b0;
+                     bltu   <= 1'b0;
+                     bgeu   <= 1'b0;
+                     lb     <= 1'b0;
+                     lh     <= 1'b0;
+                     lw     <= 1'b0;
+                     lbu    <= 1'b0;
+                     lhu    <= 1'b0;
+                     sb     <= 1'b0;
+                     sh     <= 1'b0;
+                     sw     <= 1'b0;
+                     addi   <= 1'b0;
+                     slti   <= 1'b0;
+                     sltiu  <= 1'b0;
+                     xori   <= 1'b0;
+                     ori    <= 1'b0;
+                     andi   <= 1'b0;
+                     slli   <= 1'b0;
+                     srli   <= 1'b0;
+                     srai   <= 1'b0;
+                     add    <= 1'b0;
+                     sub    <= 1'b0;
+                     sll    <= 1'b0;
+                     slt    <= 1'b0;
+                     sltu   <= 1'b0;
+                     xor_op <= 1'b0;
+                     srl    <= 1'b0;
+                     sra    <= 1'b0;
+                     or_op     <= 1'b0;
+                     and_op    <= 1'b0;
+                     fence  <= 1'b0;
+                     ecall  <= 1'b0;
+                     ebreak <= 1'b0;
+                     csrrw  <= 1'b0;
+                     csrrs  <= 1'b0;
+                     csrrc  <= 1'b0;
+                     csrrwi <= 1'b0;
+                     csrrsi <= 1'b0;
+                     csrrci <= 1'b0;
+                     other  <= 1'b0;
+
+                     casez(i_ibus_rdt)
+                       //  3322222_22222 11111_111 11
+                       //  1098765_43210 98765_432 10987_65432_10
+                       32'b???????_?????_?????_???_?????_01101_11 : lui    <= 1'b1;
+                       32'b???????_?????_?????_???_?????_00101_11 : auipc  <= 1'b1;
+                       32'b???????_?????_?????_???_?????_11011_11 : jal    <= 1'b1;
+                       32'b???????_?????_?????_000_?????_11001_11 : jalr   <= 1'b1;
+                       32'b???????_?????_?????_000_?????_11000_11 : beq    <= 1'b1;
+                       32'b???????_?????_?????_001_?????_11000_11 : bne    <= 1'b1;
+                       32'b???????_?????_?????_100_?????_11000_11 : blt    <= 1'b1;
+                       32'b???????_?????_?????_101_?????_11000_11 : bge    <= 1'b1;
+                       32'b???????_?????_?????_110_?????_11000_11 : bltu   <= 1'b1;
+                       32'b???????_?????_?????_111_?????_11000_11 : bgeu   <= 1'b1;
+                       32'b???????_?????_?????_000_?????_00000_11 : lb     <= 1'b1;
+                       32'b???????_?????_?????_001_?????_00000_11 : lh     <= 1'b1;
+                       32'b???????_?????_?????_010_?????_00000_11 : lw     <= 1'b1;
+                       32'b???????_?????_?????_100_?????_00000_11 : lbu    <= 1'b1;
+                       32'b???????_?????_?????_101_?????_00000_11 : lhu    <= 1'b1;
+                       32'b???????_?????_?????_000_?????_01000_11 : sb     <= 1'b1;
+                       32'b???????_?????_?????_001_?????_01000_11 : sh     <= 1'b1;
+                       32'b???????_?????_?????_010_?????_01000_11 : sw     <= 1'b1;
+                       32'b???????_?????_?????_000_?????_00100_11 : addi   <= 1'b1;
+                       32'b???????_?????_?????_010_?????_00100_11 : slti   <= 1'b1;
+                       32'b???????_?????_?????_011_?????_00100_11 : sltiu  <= 1'b1;
+                       32'b???????_?????_?????_100_?????_00100_11 : xori   <= 1'b1;
+                       32'b???????_?????_?????_110_?????_00100_11 : ori    <= 1'b1;
+                       32'b???????_?????_?????_111_?????_00100_11 : andi   <= 1'b1;
+                       32'b0000000_?????_?????_001_?????_00100_11 : slli   <= 1'b1;
+                       32'b0000000_?????_?????_101_?????_00100_11 : srli   <= 1'b1;
+                       32'b0100000_?????_?????_101_?????_00100_11 : srai   <= 1'b1;
+                       32'b0000000_?????_?????_000_?????_01100_11 : add    <= 1'b1;
+                       32'b0100000_?????_?????_000_?????_01100_11 : sub    <= 1'b1;
+                       32'b0000000_?????_?????_001_?????_01100_11 : sll    <= 1'b1;
+                       32'b0000000_?????_?????_010_?????_01100_11 : slt    <= 1'b1;
+                       32'b0000000_?????_?????_011_?????_01100_11 : sltu   <= 1'b1;
+                       32'b???????_?????_?????_100_?????_01100_11 : xor_op <= 1'b1;
+                       32'b0000000_?????_?????_101_?????_01100_11 : srl    <= 1'b1;
+                       32'b0100000_?????_?????_101_?????_01100_11 : sra    <= 1'b1;
+                       32'b???????_?????_?????_110_?????_01100_11 : or_op     <= 1'b1;
+                       32'b???????_?????_?????_111_?????_01100_11 : and_op    <= 1'b1;
+                       32'b???????_?????_?????_000_?????_00011_11 : fence  <= 1'b1;
+                       32'b0000000_00000_00000_000_00000_11100_11 : ecall  <= 1'b1;
+                       32'b0000000_00001_00000_000_00000_11100_11 : ebreak <= 1'b1;
+                       32'b???????_?????_?????_001_?????_11100_11 : csrrw  <= 1'b1;
+                       32'b???????_?????_?????_010_?????_11100_11 : csrrs  <= 1'b1;
+                       32'b???????_?????_?????_011_?????_11100_11 : csrrc  <= 1'b1;
+                       32'b???????_?????_?????_101_?????_11100_11 : csrrwi <= 1'b1;
+                       32'b???????_?????_?????_110_?????_11100_11 : csrrsi <= 1'b1;
+                       32'b???????_?????_?????_111_?????_11100_11 : csrrci <= 1'b1;
+                       default : other <= 1'b1;
+                     endcase
+                  end
+               end
+
+            `ifdef RISCV_FORMAL
+               reg [31:0]    pc = RESET_PC;
+
+               wire rs_en = two_stage_op ? init : i_ctrl_pc_en;
+
+               assign rvfi_rd_wdata = update_rd ? dbg_rd : 32'd0;
+
+               always @(posedge i_clk) begin
+                  /* End of instruction */
+                  rvfi_valid <= i_cnt_done & i_ctrl_pc_en & !i_rst;
+                  rvfi_order <= rvfi_order + {63'd0,rvfi_valid};
+
+                  /* Get instruction word when it's fetched from ibus */
+                  if (i_ibus_cyc & i_ibus_ack)
+                    rvfi_insn <= i_ibus_rdt;
+
+
+                  if (i_cnt_done & i_ctrl_pc_en) begin
+                     rvfi_pc_rdata <= pc;
+                     if (!(rd_en & (\|i_rd_addr))) begin
+                       rvfi_rd_addr <= 5'd0;
+                     end
+                  end
+                  rvfi_trap <= trap;
+                  if (rvfi_valid) begin
+                     rvfi_trap <= 1'b0;
+                     pc <= rvfi_pc_wdata;
+                  end
+
+                  /* RS1 not valid during J, U instructions (immdec_en[1]) */
+                  /* RS2 not valid during I, J, U instructions (immdec_en[2]) */
+                  if (i_rf_ready) begin
+                     rvfi_rs1_addr <= !immdec_en[1] ? rs1_addr : 5'd0;
+                     rvfi_rs2_addr <= !immdec_en[2] /*rs2_valid*/ ? rs2_addr : 5'd0;
+                     rvfi_rd_addr  <= i_rd_addr;
+                  end
+                  if (rs_en) begin
+                     rvfi_rs1_rdata <= {(!immdec_en[1] ? rs1 : {W{1'b0}}),rvfi_rs1_rdata[31:W]};
+                     rvfi_rs2_rdata <= {(!immdec_en[2] ? rs2 : {W{1'b0}}),rvfi_rs2_rdata[31:W]};
+                  end
+
+                  if (i_dbus_ack) begin
+                     rvfi_mem_addr  <= i_dbus_adr;
+                     rvfi_mem_rmask <= i_dbus_we ? 4'b0000 : i_dbus_sel;
+                     rvfi_mem_wmask <= i_dbus_we ? i_dbus_sel : 4'b0000;
+                     rvfi_mem_rdata <= i_dbus_rdt;
+                     rvfi_mem_wdata <= i_dbus_dat;
+                  end
+                  if (i_ibus_ack) begin
+                     rvfi_mem_rmask <= 4'b0000;
+                     rvfi_mem_wmask <= 4'b0000;
+                  end
+               end
+
+                        assign rvfi_pc_wdata = i_ibus_adr;
+
+            `endif
+\SV
+endmodule

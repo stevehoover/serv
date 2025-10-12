@@ -1,0 +1,5 @@
+{
+    "task": "TLV File Format",
+    "fev.sh": "2: SandPiper failed for wip.tlv -> wip.sv",  
+    "llm": "TLV File Format task: Fixed SandPiper error by escaping reduction OR operators (|funct3). Testing format conversion."
+}

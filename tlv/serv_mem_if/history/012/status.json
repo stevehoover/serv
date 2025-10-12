@@ -1,0 +1,5 @@
+{
+    "task": "Non-vector Signals",
+    "fev.sh": "none",
+    "llm": "No non-vector signals found in this module. All internal signals are simple boolean pipesignals already. Task not applicable."
+}

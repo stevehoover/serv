@@ -1,0 +1,5 @@
+{
+  "task": "Simple Signals to Pipesignals",
+  "fev.sh": "none",
+  "llm": "Successfully converted opcode signal to pipesignal - incremental FEV passed. Full FEV fails for non-default parameters due to timing differences (registered vs combinatorial based on PRE_REGISTER). Continuing with remaining signals: funct3, op20, op21, op22, op26, imm25, imm30."
+}

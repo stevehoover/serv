@@ -1,0 +1,5 @@
+{
+    "task": "Consolidate the SV-TLV Interface",
+    "fev.sh": "none",
+    "llm": "Input consolidation already exists. Need to add output assignments and remove them from generate blocks to avoid multiple drivers."
+}

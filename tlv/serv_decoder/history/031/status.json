@@ -1,0 +1,5 @@
+{
+  "task": "Simple Signals to Pipesignals",
+  "fev.sh": "3: Incremental FEV failed",
+  "llm": "Revisiting Simple Signals to Pipesignals task to convert remaining internal signals (opcode, funct3, op20, op21, op22, op26, imm25, imm30) from reg declarations to pipesignals. These are currently assigned within generate blocks based on PRE_REGISTER parameter."
+}

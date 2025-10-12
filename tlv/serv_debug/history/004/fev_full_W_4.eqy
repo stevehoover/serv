@@ -1,0 +1,144 @@
+############################################
+# GOLDEN DESIGN
+############################################
+[gold]
+read_verilog -sv -formal prepared.sv
+
+############################################
+# UPDATED / GATE DESIGN
+############################################
+[gate]
+read_verilog -sv -formal wip.sv
+
+[script]
+chparam -set W 4
+prep -top serv_debug -flatten
+setundef -anyseq
+#sim -w -clock clk -reset reset -rstlen 10 -n 10
+
+
+############################################
+# MATCHING / PARTITIONING HINTS
+############################################
+# The below section should be formatted as:
+# [match serv_debug]
+# gold-match <gold_signal> <gate_signal>
+# ...
+# And should be followed by a blank line, marking the end of the section.
+# Gate names may use TL-Verilog pipesignal references, which will be mapped by `fev.sh`.
+[match serv_debug]
+gold-match update_rd update_rd
+gold-match update_mscratch update_mscratch
+gold-match update_mtvec update_mtvec
+gold-match update_mepc update_mepc
+gold-match update_mtval update_mtval
+gold-match update_mstatus update_mstatus
+gold-match update_mie update_mie
+gold-match update_mcause update_mcause
+gold-match dbg_rd dbg_rd
+gold-match dbg_csr dbg_csr
+gold-match dbg_mstatus dbg_mstatus
+gold-match dbg_mie dbg_mie
+gold-match dbg_mcause dbg_mcause
+gold-match dbg_mscratch dbg_mscratch
+gold-match dbg_mtvec dbg_mtvec
+gold-match dbg_mepc dbg_mepc
+gold-match dbg_mtval dbg_mtval
+gold-match x1 x1
+gold-match x2 x2
+gold-match x3 x3
+gold-match x4 x4
+gold-match x5 x5
+gold-match x6 x6
+gold-match x7 x7
+gold-match x8 x8
+gold-match x9 x9
+gold-match x10 x10
+gold-match x11 x11
+gold-match x12 x12
+gold-match x13 x13
+gold-match x14 x14
+gold-match x15 x15
+gold-match x16 x16
+gold-match x17 x17
+gold-match x18 x18
+gold-match x19 x19
+gold-match x20 x20
+gold-match x21 x21
+gold-match x22 x22
+gold-match x23 x23
+gold-match x24 x24
+gold-match x25 x25
+gold-match x26 x26
+gold-match x27 x27
+gold-match x28 x28
+gold-match x29 x29
+gold-match x30 x30
+gold-match x31 x31
+gold-match LUI LUI
+gold-match AUIPC AUIPC
+gold-match JAL JAL
+gold-match JALR JALR
+gold-match BEQ BEQ
+gold-match BNE BNE
+gold-match BLT BLT
+gold-match BGE BGE
+gold-match BLTU BLTU
+gold-match BGEU BGEU
+gold-match LB LB
+gold-match LH LH
+gold-match LW LW
+gold-match LBU LBU
+gold-match LHU LHU
+gold-match SB SB
+gold-match SH SH
+gold-match SW SW
+gold-match ADDI ADDI
+gold-match SLTI SLTI
+gold-match SLTIU SLTIU
+gold-match XORI XORI
+gold-match ORI ORI
+gold-match ANDI ANDI
+gold-match SLLI SLLI
+gold-match SRLI SRLI
+gold-match SRAI SRAI
+gold-match ADD ADD
+gold-match SUB SUB
+gold-match SLL SLL
+gold-match SLT SLT
+gold-match SLTU SLTU
+gold-match XOR XOR
+gold-match SRL SRL
+gold-match SRA SRA
+gold-match OR OR
+gold-match AND AND
+gold-match FENCE FENCE
+gold-match ECALL ECALL
+gold-match EBREAK EBREAK
+gold-match CSRRW CSRRW
+gold-match CSRRS CSRRS
+gold-match CSRRC CSRRC
+gold-match CSRRWI CSRRWI
+gold-match CSRRSI CSRRSI
+gold-match CSRRCI CSRRCI
+gold-match OTHER OTHER
+gold-match pc pc
+gold-match rs_en rs_en
+
+[collect *]
+# Let EQY partition automatically.
+# If you want to force grouping by register name patterns, you can uncomment:
+# group .*
+
+############################################
+# STRATEGIES
+############################################
+# Disabled due to https://github.com/YosysHQ/eqy/issues/83
+#[strategy fast_sat]
+#use sat
+#depth 10
+
+[strategy sby_seq]
+use sby
+depth 20
+engine smtbmc

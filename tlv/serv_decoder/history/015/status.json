@@ -1,0 +1,5 @@
+{
+  "task": "Simple Signals to Pipesignals",
+  "fev.sh": "2: SandPiper failed for wip.tlv -> wip.sv",
+  "llm": "Split large SV_plus block successfully. SandPiper now runs but had unused signal warnings. Fixed output assignments for co_csr_addr, co_csr_source, co_csr_d_sel, co_ext_funct3, and co_csr_imm_en to use pipesignal versions ($signal instead of wire signal). Testing if this resolves unused signal warnings."
+}
