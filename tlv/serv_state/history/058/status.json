@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "3: Incremental FEV failed",
+  "llm": "Stabilizing code - reverted to last stable state (feved.tlv) due to mixed TLV/SV conflicts causing FEV failures. Will restart 'Migrate to TLV Expressions' task systematically."
+}

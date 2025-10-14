@@ -55,11 +55,13 @@ use(m5-1.0)
          $o_bad_pc_output[B:0] = $pc_plus_offset_aligned;  // PC for exception handling
          
          // Compute the next o_ibus_adr value using pipesignals for cleaner logic
-         $o_ibus_adr_next[31:0] = (RESET_STRATEGY == "NONE") ?
-                                     ($i_pc_en ? {$new_pc, $o_ibus_adr_input[31 : W]} : $o_ibus_adr_input) :
-                                     (($i_pc_en | $reset) ? 
-                                        ($reset ? RESET_PC : {$new_pc, $o_ibus_adr_input[31 : W]}) : 
-                                        $o_ibus_adr_input);
+         $o_ibus_adr_next[31:0] =
+              ((RESET_STRATEGY != "NONE") && $reset)
+                 ? RESET_PC :
+              $i_pc_en
+                 ? {$new_pc, $o_ibus_adr_input[31 : W]} :
+              //default
+                   $o_ibus_adr_input;
 
 \SV
 `default_nettype none
@@ -123,13 +125,9 @@ module serv_ctrl
       @0
          *o_rd = $o_rd_output;
          *o_bad_pc = $o_bad_pc_output;
+         *o_ibus_adr = >>1$o_ibus_adr_next;
          
          \SV_plus
             initial if (RESET_STRATEGY == "NONE") o_ibus_adr = RESET_PC;
-
-            always \@(posedge clk) begin
-               // Use the computed pipesignal value
-               o_ibus_adr <= $o_ibus_adr_next;
-            end
 \SV
 endmodule

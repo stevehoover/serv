@@ -1,0 +1,5 @@
+{
+  "task": "Generate If to For",
+  "fev.sh": "3: Incremental FEV failed",
+  "llm": "Starting Generate If to For task. Need to analyze generate if blocks and convert them to for loops or ternary expressions to prepare for TL-Verilog conversion."
+}

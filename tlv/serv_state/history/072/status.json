@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "2: SandPiper failed for wip.tlv -> wip.sv",
+  "llm": "Successfully migrated o_mdu_valid and o_rf_wreq. o_bufreg_en failed due to o_cnt_en signal mapping. Next: migrate sequential logic."
+}

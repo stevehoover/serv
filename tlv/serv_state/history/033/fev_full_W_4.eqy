@@ -1,0 +1,71 @@
+############################################
+# GOLDEN DESIGN
+############################################
+[gold]
+read_verilog -sv -formal prepared.sv
+
+############################################
+# UPDATED / GATE DESIGN
+############################################
+[gate]
+read_verilog -sv -formal wip.sv
+
+[script]
+chparam -set W 4
+#prep -top serv_state -flatten
+hierarchy -top serv_state -check
+flatten
+proc -ifx
+#splitnets -ports
+clean
+setundef -anyseq
+#sim -w -clock clk -reset reset -rstlen 10 -n 10
+
+
+############################################
+# MATCHING / PARTITIONING HINTS
+############################################
+# The below section should be formatted as:
+# [match serv_state]
+# gold-match <gold_signal> <gate_signal>
+# ...
+# And should be followed by a blank line, marking the end of the section.
+# Gate names may use TL-Verilog pipesignal references, which will be mapped by `fev.sh`.
+[match serv_state]
+gold-match init_done init_done
+gold-match misalign_trap_sync misalign_trap_sync
+gold-match o_cnt out_cnt
+gold-match o_cnt[2] out_cnt[2]
+gold-match o_cnt[3] out_cnt[3]
+gold-match o_cnt[4] out_cnt[4]
+gold-match cnt_r cnt_r
+gold-match ibus_cyc ibus_cyc
+gold-match take_branch take_branch
+gold-match last_init last_init
+gold-match trap_pending trap_pending
+# Matching aggregated signals instead of individual scoped signals for simpler FEV
+# The individual generate block signals have been converted to TL-Verilog scoped signals
+# but the functionality is verified through the main interface signals that aggregate them
+gold-match take_branch DEFAULT_take_branch_a0
+gold-match last_init DEFAULT_last_init_a0
+gold-match trap_pending DEFAULT_trap_pending_a0
+gold-match misalign_trap_sync DEFAULT_misalign_trap_sync_a0
+gold-match o_ctrl_trap DEFAULT_o_ctrl_trap_a0
+
+[collect *]
+# Let EQY partition automatically.
+# If you want to force grouping by register name patterns, you can uncomment:
+# group .*
+
+############################################
+# STRATEGIES
+############################################
+# Disabled due to https://github.com/YosysHQ/eqy/issues/83
+#[strategy fast_sat]
+#use sat
+#depth 10
+
+[strategy sby_seq]
+use sby
+depth 20
+engine smtbmc

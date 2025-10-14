@@ -1,0 +1,5 @@
+{
+    "task": "If/Else and Case to Ternary",
+    "fev.sh": "none",
+    "llm": "Converting if/else statements to ternary expressions. Found two if/else blocks: o_ctrl_jump logic and counter increment logic."
+}

@@ -1,0 +1,5 @@
+{
+  "task": "Migrate to TLV Expressions",
+  "fev.sh": "4: Full FEV (fev_full) failed",
+  "llm": "Successfully migrated ibus_cyc, init_done sequential logic, and misalign_trap_sync assignment. SandPiper now compiles with warnings about unused generate block signals. Counter generate blocks are complex due to parameter-dependent logic (W=1 vs W=4) requiring coordinated migration. Focus on completing remaining simple migrations before tackling the generate block counter system."
+}

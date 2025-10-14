@@ -1,0 +1,5 @@
+{
+    "task": "Name Generate Blocks",
+    "fev.sh": "none",
+    "llm": "Analyzing generate blocks. Found three generate blocks already have meaningful names: gen_cnt_w_eq_1/gen_cnt_w_eq_4 for counter implementations and gen_csr/gen_no_csr for CSR functionality."
+}

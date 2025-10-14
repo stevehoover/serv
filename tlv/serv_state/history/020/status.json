@@ -1,0 +1,5 @@
+{
+  "task": "Convert Replicated Signals to Pipesignals",
+  "fev.sh": "4: Failed to map TLV pipesignals to Verilog in fev_full.eqy. (See work in ./tmp/LbgDJ/match)",
+  "llm": "Starting Convert Replicated Signals to Pipesignals task. Need to identify array signals and signals declared within for loops and convert them to TL-Verilog pipesignals with proper scope declarations (/scope[range])."
+}

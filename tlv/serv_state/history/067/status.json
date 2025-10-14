@@ -1,0 +1,5 @@
+{
+    "task": "Non-vector Signals",
+    "fev.sh": "none",
+    "llm": "Analyzed module for non-vector signals. All signals in serv_state are simple bit vectors (single bits or bit ranges like [4:2], [1:0]). No complex types (structs, enums, signed types) found that require conversion to pipesignals with ** type declarations. Task completed - no changes needed."
+}
