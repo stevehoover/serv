@@ -1,0 +1,5 @@
+{
+  "task": "Signal Matching",
+  "fev.sh": "4: Failed to map TLV pipesignals to Verilog in fev_full.eqy. (See work in ./tmp/q2FYn/match)",
+  "llm": ""
+}

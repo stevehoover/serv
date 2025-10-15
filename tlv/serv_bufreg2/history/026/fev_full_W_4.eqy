@@ -1,0 +1,62 @@
+############################################
+# GOLDEN DESIGN
+############################################
+[gold]
+read_verilog -sv -formal prepared.sv
+
+############################################
+# UPDATED / GATE DESIGN
+############################################
+[gate]
+read_verilog -sv -formal wip.sv
+
+[script]
+chparam -set W 4
+#prep -top serv_bufreg2 -flatten
+hierarchy -top serv_bufreg2 -check
+flatten
+proc -ifx
+#splitnets -ports
+clean
+setundef -anyseq
+#sim -w -clock clk -reset reset -rstlen 10 -n 10
+
+
+############################################
+# MATCHING / PARTITIONING HINTS
+############################################
+# The below section should be formatted as:
+# [match serv_bufreg2]
+# gold-match <gold_signal> <gate_signal>
+
+[match serv_bufreg2]
+gold-match data_hi data_hi
+gold-match data_lo data_lo
+gold-match byte_valid byte_valid
+gold-match shift_en shift_en
+gold-match cnt_en cnt_en
+gold-match cnt_next cnt_next
+gold-match cnt_next_w_eq_1 cnt_next_w_eq_1
+gold-match cnt_next_w_eq_4 cnt_next_w_eq_4
+gold-match dat_shamt dat_shamt
+gold-match dat_combined dat_combined
+gold-match op_b op_b
+
+# Gate names may use TL-Verilog pipesignal references, which will be mapped by `fev.sh`.
+
+[collect *]
+# Group outputs whose fanin includes modified expressions with intermediate pipesignals
+group /o_.*/ /o_.*/
+
+############################################
+# STRATEGIES
+############################################
+# Disabled due to https://github.com/YosysHQ/eqy/issues/83
+#[strategy fast_sat]
+#use sat
+#depth 10
+
+[strategy sby_seq]
+use sby
+depth 20
+engine smtbmc
