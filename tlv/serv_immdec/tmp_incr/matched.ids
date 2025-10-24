@@ -1,0 +1,22 @@
+# [*] gold-match *
+serv_immdec clk clk
+serv_immdec gen_immdec_w_eq1[0].imm31 gen_immdec_w_eq1[0].imm31
+serv_immdec gen_immdec_w_eq1[0].imm7 gen_immdec_w_eq1[0].imm7
+serv_immdec gen_immdec_w_eq1[0].imm_b11_b7 gen_immdec_w_eq1[0].imm_b11_b7
+serv_immdec gen_immdec_w_eq1[0].imm_b19_b12_b20 gen_immdec_w_eq1[0].imm_b19_b12_b20
+serv_immdec gen_immdec_w_eq1[0].imm_b24_b20 gen_immdec_w_eq1[0].imm_b24_b20
+serv_immdec gen_immdec_w_eq1[0].imm_b30_b25 gen_immdec_w_eq1[0].imm_b30_b25
+serv_immdec gen_immdec_w_eq1[0].signbit gen_immdec_w_eq1[0].signbit
+serv_immdec i_clk i_clk
+serv_immdec i_cnt_done i_cnt_done
+serv_immdec i_cnt_en i_cnt_en
+serv_immdec i_csr_imm_en i_csr_imm_en
+serv_immdec i_ctrl i_ctrl
+serv_immdec i_immdec_en i_immdec_en
+serv_immdec i_wb_en i_wb_en
+serv_immdec i_wb_rdt i_wb_rdt
+serv_immdec o_csr_imm o_csr_imm
+serv_immdec o_imm o_imm
+serv_immdec o_rd_addr o_rd_addr
+serv_immdec o_rs1_addr o_rs1_addr
+serv_immdec o_rs2_addr o_rs2_addr

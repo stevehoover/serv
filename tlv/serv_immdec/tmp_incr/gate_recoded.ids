@@ -1,0 +1,22 @@
+serv_immdec . A:dynports=1 A:top=1 A:src="wip.tlv:5.1-328.10"
+serv_immdec clk w=0:0 A:src="wip.tlv:37.18-37.21"
+serv_immdec gen_immdec_w_eq1[0].imm31 w=0:0 A:src="wip.tlv:43.34-43.39"
+serv_immdec gen_immdec_w_eq1[0].imm7 w=0:0 A:src="wip.tlv:46.27-46.31"
+serv_immdec gen_immdec_w_eq1[0].imm_b11_b7 w=4:0 A:src="wip.tlv:49.27-49.37"
+serv_immdec gen_immdec_w_eq1[0].imm_b19_b12_b20 w=8:0 A:src="wip.tlv:45.27-45.42"
+serv_immdec gen_immdec_w_eq1[0].imm_b24_b20 w=4:0 A:src="wip.tlv:48.27-48.38"
+serv_immdec gen_immdec_w_eq1[0].imm_b30_b25 w=5:0 A:src="wip.tlv:47.27-47.38"
+serv_immdec gen_immdec_w_eq1[0].signbit w=0:0 A:src="wip.tlv:51.27-51.34"
+serv_immdec i_clk w=0:0 A:src="wip.tlv:9.31-9.36" P=I
+serv_immdec i_cnt_done w=0:0 A:src="wip.tlv:12.22-12.32" P=I
+serv_immdec i_cnt_en w=0:0 A:src="wip.tlv:11.22-11.30" P=I
+serv_immdec i_csr_imm_en w=0:0 A:src="wip.tlv:15.22-15.34" P=I
+serv_immdec i_ctrl w=3:0 A:src="wip.tlv:16.22-16.28" P=I
+serv_immdec i_immdec_en w=3:0 A:src="wip.tlv:14.22-14.33" P=I
+serv_immdec i_wb_en w=0:0 A:src="wip.tlv:24.22-24.29" P=I
+serv_immdec i_wb_rdt w=31:7 A:src="wip.tlv:25.22-25.30" P=I
+serv_immdec o_csr_imm w=0:0 A:src="wip.tlv:21.24-21.33" P=O
+serv_immdec o_imm w=0:0 A:src="wip.tlv:22.24-22.29" P=O
+serv_immdec o_rd_addr w=4:0 A:src="wip.tlv:17.22-17.31" P=O
+serv_immdec o_rs1_addr w=4:0 A:src="wip.tlv:18.22-18.32" P=O
+serv_immdec o_rs2_addr w=4:0 A:src="wip.tlv:19.22-19.32" P=O

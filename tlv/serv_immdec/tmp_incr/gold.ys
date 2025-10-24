@@ -1,0 +1,10 @@
+read_verilog -sv -formal feved.sv
+hierarchy -top serv_immdec -check
+flatten
+proc -ifx
+clean
+setundef -anyseq
+opt_clean
+check -initdrv
+setundef -undriven -undef
+write_ilang tmp_incr/gold.il

@@ -1,0 +1,6 @@
+{
+  "task": "Simple Signal Assignments to TLV Pipesignal Assignments",
+  "fev.sh": "0: All FEV runs successful! History updated.",
+  "fev_cnt": 0,
+  "llm": "RESTARTED: File corruption fixed by restoring from feved.tlv. Signbit pipesignals already converted. Task is to convert SIMPLE signal assignments only - looking for independent assignments that can be converted individually. Need to identify which signals qualify as 'simple' per task definition: no generate blocks, no procedural for loops, no signed types, no multiple assignments, no module instantiations."
+}

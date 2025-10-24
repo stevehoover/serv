@@ -1,0 +1,11 @@
+plugin -i /home/steve/install/oss-cad-suite/libexec/../share/yosys/plugins/eqy_combine.so
+read_ilang tmp_incr/gold.il
+uniquify
+hierarchy
+design -stash gold
+read_ilang tmp_incr/gate_recoded.il
+uniquify
+hierarchy
+design -stash gate
+eqy_combine -gold_ids tmp_incr/gold.ids -gate_ids tmp_incr/gate_recoded.ids
+write_ilang tmp_incr/combined.il

@@ -1,0 +1,14 @@
+# running in serv_immdec.clk/src/
+verilog_defaults -add -D CHECK_OUTPUTS
+read_verilog -sv ../../../../../partitions/serv_immdec.clk.sv
+read_ilang ../../../../../partitions/serv_immdec.clk.il
+hierarchy -top miter; proc
+
+formalff -clk2ff -ff2anyinit gate.serv_immdec.clk
+setundef -anyseq gate.serv_immdec.clk
+flatten -wb; dffunmap; opt_expr -keepdc -undriven; opt_clean
+xprop -formal -split-ports -assume-def-inputs miter
+
+hierarchy -smtcheck
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

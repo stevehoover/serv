@@ -1,0 +1,8 @@
+{
+  "top": "serv_rf_if",
+  "M5_configs": {
+    "WITH_CSR": "--m5def cond_with_csr=1",
+    "NO_CSR": "--m5def cond_with_csr=0"
+  },
+  "default_config": "WITH_CSR"
+}

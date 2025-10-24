@@ -1,0 +1,1 @@
+group serv_immdec clk gen_immdec_w_eq1[0].imm31 gen_immdec_w_eq1[0].imm7 gen_immdec_w_eq1[0].imm_b11_b7 gen_immdec_w_eq1[0].imm_b19_b12_b20 gen_immdec_w_eq1[0].imm_b24_b20 gen_immdec_w_eq1[0].imm_b30_b25 gen_immdec_w_eq1[0].signbit i_clk i_cnt_done i_cnt_en i_csr_imm_en i_ctrl i_immdec_en i_wb_en i_wb_rdt o_csr_imm o_imm o_rd_addr o_rs1_addr o_rs2_addr

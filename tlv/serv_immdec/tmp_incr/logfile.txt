@@ -1,0 +1,22 @@
+EQY 17:24:51 [tmp_incr] read_gold: starting process "yosys -ql tmp_incr/gold.log tmp_incr/gold.ys"
+EQY 17:24:51 [tmp_incr] read_gold: finished (returncode=0)
+EQY 17:24:51 [tmp_incr] read_gate: starting process "yosys -ql tmp_incr/gate.log tmp_incr/gate.ys"
+EQY 17:24:51 [tmp_incr] read_gate: finished (returncode=0)
+EQY 17:24:51 [tmp_incr] combine: starting process "yosys -ql tmp_incr/combine.log tmp_incr/combine.ys"
+EQY 17:24:51 [tmp_incr] combine: finished (returncode=0)
+EQY 17:24:51 [tmp_incr] partition: starting process "cd tmp_incr; yosys -ql partition.log partition.ys"
+EQY 17:24:51 [tmp_incr] partition: finished (returncode=0)
+EQY 17:24:51 [tmp_incr] run: starting process "make -C tmp_incr -f strategies.mk"
+EQY 17:24:51 [tmp_incr] run: make: Entering directory '/home/steve/repos/serv/tlv/serv_immdec/tmp_incr'
+EQY 17:24:51 [tmp_incr] run: Running strategy 'sby_seq' on 'serv_immdec.clk'..
+EQY 17:24:53 [tmp_incr] run: Proved equivalence of partition 'serv_immdec.clk' using strategy 'sby_seq'
+EQY 17:24:53 [tmp_incr] run: make -f strategies.mk summary
+EQY 17:24:53 [tmp_incr] run: make[1]: Entering directory '/home/steve/repos/serv/tlv/serv_immdec/tmp_incr'
+EQY 17:24:53 [tmp_incr] run: make[1]: Leaving directory '/home/steve/repos/serv/tlv/serv_immdec/tmp_incr'
+EQY 17:24:53 [tmp_incr] run: make: Leaving directory '/home/steve/repos/serv/tlv/serv_immdec/tmp_incr'
+EQY 17:24:53 [tmp_incr] run: finished (returncode=0)
+EQY 17:24:53 [tmp_incr] Successfully proved equivalence of partition serv_immdec.clk
+EQY 17:24:53 [tmp_incr] Successfully proved designs equivalent
+EQY 17:24:53 [tmp_incr] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+EQY 17:24:53 [tmp_incr] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+EQY 17:24:53 [tmp_incr] DONE (PASS, rc=0)

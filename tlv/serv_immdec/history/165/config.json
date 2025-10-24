@@ -1,0 +1,9 @@
+{
+  "top": "serv_immdec",
+  "M5_configs": {
+    "W_1_SHARED_1": "--m5def cond_w_1=1 --m5def cond_shared=1",
+    "W_1_SHARED_0": "--m5def cond_w_1=1 --m5def cond_shared=0",
+    "W_4": "--m5def cond_w_1=0"
+  },
+  "default_config": "W_1_SHARED_1"
+}

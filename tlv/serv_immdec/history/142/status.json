@@ -1,0 +1,6 @@
+{
+  "task": "Simple Signal Assignments to TLV Pipesignal Assignments",
+  "fev.sh": "2: SandPiper failed for wip.tlv -> wip_W_1_SHARED_1.sv",
+  "fev_cnt": 2,
+  "llm": "IN PROGRESS: Only converted 2 'signbit' signals so far. Need to convert ALL remaining internal signals from Verilog assignments to TL-Verilog pipesignals: imm31, imm7, imm_b*, ii*, rd_addr, rs1_addr, rs2_addr. Must convert both combinational (assign) and sequential (always block <=) assignments for internal signals. Exclude only module outputs and clock."
+}

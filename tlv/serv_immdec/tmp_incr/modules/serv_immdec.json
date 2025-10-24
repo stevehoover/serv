@@ -1,0 +1,106 @@
+{
+  "partition": {
+    "index": 1,
+    "name": "serv_immdec",
+    "inbits": {
+      "i_clk": [
+        0
+      ],
+      "i_cnt_done": [
+        0
+      ],
+      "i_cnt_en": [
+        0
+      ],
+      "i_csr_imm_en": [
+        0
+      ],
+      "i_ctrl": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "i_immdec_en": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "i_wb_en": [
+        0
+      ],
+      "i_wb_rdt": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ]
+    },
+    "outbits": {
+      "o_csr_imm": [
+        0
+      ],
+      "o_imm": [
+        0
+      ],
+      "o_rd_addr": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "o_rs1_addr": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "o_rs2_addr": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.serv_immdec",
+    "internal": {},
+    "unused": {},
+    "cellcount": 50,
+    "bitcount": 151
+  },
+  "gate_module": {
+    "name": "gold.serv_immdec",
+    "internal": {},
+    "unused": {},
+    "cellcount": 50,
+    "bitcount": 151
+  }
+}

@@ -1,0 +1,104 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.36+58 (git sha1 ea7818d31, clang 10.0.0-4ubuntu1 -fPIC -Os)
+
+
+-- Executing script file `tmp_incr/gold.ys' --
+
+1. Executing Verilog-2005 frontend: feved.sv
+Parsing formal SystemVerilog input from `feved.sv' to AST representation.
+Generating RTLIL representation for module `\serv_immdec'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \serv_immdec
+
+2.2. Analyzing design hierarchy..
+Top module:  \serv_immdec
+Removed 0 unused modules.
+
+3. Executing FLATTEN pass (flatten design).
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 6 assignments to connections.
+
+4.3. Executing PROC_INIT pass (extract init attributes).
+
+4.4. Executing PROC_ARST pass (detect async resets in processes).
+
+4.5. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+4.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\serv_immdec.$proc$feved.tlv:58$3'.
+
+4.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+4.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\serv_immdec.\gen_immdec_w_eq1[0].imm31' using process `\serv_immdec.$proc$feved.tlv:58$3'.
+  created $dff cell `$procdff$29' with positive edge clock.
+Creating register for signal `\serv_immdec.\gen_immdec_w_eq1[0].imm_b19_b12_b20' using process `\serv_immdec.$proc$feved.tlv:58$3'.
+  created $dff cell `$procdff$30' with positive edge clock.
+Creating register for signal `\serv_immdec.\gen_immdec_w_eq1[0].imm7' using process `\serv_immdec.$proc$feved.tlv:58$3'.
+  created $dff cell `$procdff$31' with positive edge clock.
+Creating register for signal `\serv_immdec.\gen_immdec_w_eq1[0].imm_b30_b25' using process `\serv_immdec.$proc$feved.tlv:58$3'.
+  created $dff cell `$procdff$32' with positive edge clock.
+Creating register for signal `\serv_immdec.\gen_immdec_w_eq1[0].imm_b24_b20' using process `\serv_immdec.$proc$feved.tlv:58$3'.
+  created $dff cell `$procdff$33' with positive edge clock.
+Creating register for signal `\serv_immdec.\gen_immdec_w_eq1[0].imm_b11_b7' using process `\serv_immdec.$proc$feved.tlv:58$3'.
+  created $dff cell `$procdff$34' with positive edge clock.
+
+4.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `serv_immdec.$proc$feved.tlv:58$3'.
+Cleaned up 0 empty switches.
+
+4.11. Executing OPT_EXPR pass (perform const folding).
+Optimizing module serv_immdec.
+Removed 0 unused cells and 8 unused wires.
+
+5. Executing SETUNDEF pass (replace undef values with defined constants).
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \serv_immdec..
+
+7. Executing CHECK pass (checking for obvious problems).
+Checking module serv_immdec...
+Found and reported 0 problems.
+
+8. Executing SETUNDEF pass (replace undef values with defined constants).
+
+9. Executing RTLIL backend.
+Output filename: tmp_incr/gold.il
+
+End of script. Logfile hash: 6a4c8cfe0c, CPU: user 0.01s system 0.01s, MEM: 12.62 MB peak
+Yosys 0.36+58 (git sha1 ea7818d31, clang 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 44% 2x read_verilog (0 sec), 12% 1x clean (0 sec), ...

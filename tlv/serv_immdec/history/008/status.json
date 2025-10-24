@@ -1,0 +1,5 @@
+{
+    "task": "Simplify Generate Ifs",
+    "fev.sh": "none",
+    "llm": "Simplify Generate Ifs: Analyzed all generate blocks. Main W==1 vs W==4 block cannot be simplified - fundamentally different implementations. Nested SHARED_RFADDR_IMM_REGS block cannot be simplified - uses different register sets. No changes made."
+}

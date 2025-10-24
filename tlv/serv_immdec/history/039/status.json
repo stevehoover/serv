@@ -1,0 +1,5 @@
+{
+  "task": "Convert Replicated Signals to Pipesignals",
+  "fev.sh": "2: SandPiper failed for wip.tlv -> wip.sv",
+  "llm": "Working baseline restored. Analysis shows signbit already converted to pipesignal. Need clarification on 'Convert Replicated Signals to Pipesignals' task for this module. Module uses conditional generate blocks (0/1 iterations) rather than true replication. Individual vector registers and bit registers exist but unclear if these need pipesignal conversion or if current level is sufficient for this task."
+}

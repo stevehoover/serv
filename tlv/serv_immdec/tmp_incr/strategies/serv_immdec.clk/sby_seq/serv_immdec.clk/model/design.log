@@ -1,0 +1,265 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.36+58 (git sha1 ea7818d31, clang 10.0.0-4ubuntu1 -fPIC -Os)
+
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: ../../../../../partitions/serv_immdec.clk.sv
+Parsing SystemVerilog input from `../../../../../partitions/serv_immdec.clk.sv' to AST representation.
+Generating RTLIL representation for module `\miter'.
+Generating RTLIL representation for module `\miter_cmp_prop'.
+Generating RTLIL representation for module `\miter_def_prop'.
+Generating RTLIL representation for module `\gold.serv_immdec.clk'.
+Generating RTLIL representation for module `\gate.serv_immdec.clk'.
+Successfully finished Verilog frontend.
+
+2. Executing RTLIL frontend.
+Input filename: ../../../../../partitions/serv_immdec.clk.il
+Replacing existing blackbox module \gate.serv_immdec.clk.
+Replacing existing blackbox module \gold.serv_immdec.clk.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \miter
+Used module:     \miter_cmp_prop
+Used module:     \gate.serv_immdec.clk
+Used module:     \gold.serv_immdec.clk
+Parameter 1 (\WIDTH) = 5
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+
+3.2. Executing AST frontend in derive mode using pre-parsed AST for module `\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 5
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Generating RTLIL representation for module `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 5
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Found cached RTLIL representation for module `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 5
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Found cached RTLIL representation for module `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 1
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+
+3.3. Executing AST frontend in derive mode using pre-parsed AST for module `\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 1
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Generating RTLIL representation for module `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 1
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Found cached RTLIL representation for module `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 1
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Found cached RTLIL representation for module `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 6
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+
+3.4. Executing AST frontend in derive mode using pre-parsed AST for module `\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 6
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Generating RTLIL representation for module `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 5
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Found cached RTLIL representation for module `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 9
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+
+3.5. Executing AST frontend in derive mode using pre-parsed AST for module `\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 9
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Generating RTLIL representation for module `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 5
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Found cached RTLIL representation for module `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 1
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Found cached RTLIL representation for module `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 1
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Found cached RTLIL representation for module `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 1
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Found cached RTLIL representation for module `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop'.
+
+3.6. Analyzing design hierarchy..
+Top module:  \miter
+Used module:     $paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop
+Used module:     $paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop
+Used module:     $paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop
+Used module:     $paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop
+Used module:     \gate.serv_immdec.clk
+Used module:     \gold.serv_immdec.clk
+
+3.7. Analyzing design hierarchy..
+Top module:  \miter
+Used module:     $paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop
+Used module:     $paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop
+Used module:     $paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop
+Used module:     $paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop
+Used module:     \gate.serv_immdec.clk
+Used module:     \gold.serv_immdec.clk
+Removing unused module `\miter_def_prop'.
+Removing unused module `\miter_cmp_prop'.
+Removed 2 unused modules.
+Module $paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop directly or indirectly contains formal properties -> setting "keep" attribute.
+Module $paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop directly or indirectly contains formal properties -> setting "keep" attribute.
+Module $paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop directly or indirectly contains formal properties -> setting "keep" attribute.
+Module $paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop directly or indirectly contains formal properties -> setting "keep" attribute.
+Module miter directly or indirectly contains formal properties -> setting "keep" attribute.
+Mapping positional arguments of cell miter.__po_o_rs2_addr__assert ($paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_o_rs1_addr__assert ($paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_o_rd_addr__assert ($paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_o_imm__assert ($paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_o_csr_imm__assert ($paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_gen_immdec_w_eq1[0].signbit__assert ($paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_gen_immdec_w_eq1[0].imm_b30_b25__assert ($paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_gen_immdec_w_eq1[0].imm_b24_b20__assert ($paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_gen_immdec_w_eq1[0].imm_b19_b12_b20__assert ($paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_gen_immdec_w_eq1[0].imm_b11_b7__assert ($paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_gen_immdec_w_eq1[0].imm7__assert ($paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_gen_immdec_w_eq1[0].imm31__assert ($paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop).
+Mapping positional arguments of cell miter.__po_clk__assert ($paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop).
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 16 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$157'.
+Creating decoders for process `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$152'.
+Creating decoders for process `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$147'.
+Creating decoders for process `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$126'.
+Creating decoders for process `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$229'.
+Creating decoders for process `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$192'.
+Creating decoders for process `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$187'.
+Creating decoders for process `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$162'.
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.$formal$../../../../../partitions/serv_immdec.clk.sv:170$151_CHECK' from process `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$157'.
+No latch inferred for signal `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.$formal$../../../../../partitions/serv_immdec.clk.sv:170$151_EN' from process `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$157'.
+No latch inferred for signal `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.\okay' from process `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$152'.
+No latch inferred for signal `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.\i' from process `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$152'.
+No latch inferred for signal `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.$formal$../../../../../partitions/serv_immdec.clk.sv:170$125_CHECK' from process `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$147'.
+No latch inferred for signal `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.$formal$../../../../../partitions/serv_immdec.clk.sv:170$125_EN' from process `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$147'.
+No latch inferred for signal `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.\okay' from process `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$126'.
+No latch inferred for signal `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.\i' from process `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$126'.
+No latch inferred for signal `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.$formal$../../../../../partitions/serv_immdec.clk.sv:170$191_CHECK' from process `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$229'.
+No latch inferred for signal `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.$formal$../../../../../partitions/serv_immdec.clk.sv:170$191_EN' from process `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$229'.
+No latch inferred for signal `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.\okay' from process `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$192'.
+No latch inferred for signal `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.\i' from process `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$192'.
+No latch inferred for signal `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.$formal$../../../../../partitions/serv_immdec.clk.sv:170$161_CHECK' from process `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$187'.
+No latch inferred for signal `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.$formal$../../../../../partitions/serv_immdec.clk.sv:170$161_EN' from process `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$187'.
+No latch inferred for signal `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.\okay' from process `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$162'.
+No latch inferred for signal `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.\i' from process `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$162'.
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$157'.
+Removing empty process `$paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$152'.
+Removing empty process `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$147'.
+Removing empty process `$paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$126'.
+Removing empty process `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$229'.
+Removing empty process `$paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$192'.
+Removing empty process `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:170$187'.
+Removing empty process `$paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.$proc$../../../../../partitions/serv_immdec.clk.sv:164$162'.
+Cleaned up 0 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.
+<suppressed ~1 debug messages>
+Optimizing module $paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.
+<suppressed ~1 debug messages>
+Optimizing module gold.serv_immdec.clk.
+Optimizing module gate.serv_immdec.clk.
+Optimizing module $paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.
+<suppressed ~1 debug messages>
+Optimizing module $paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.
+<suppressed ~1 debug messages>
+Optimizing module miter.
+
+5. Executing FORMALFF pass.
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$7c68cd0f50b67350b96c971f2e7bf39c83376225\miter_cmp_prop.
+Deleting now unused module $paramod$364b7ff17874d1f1a0e0c9435489136686baa64f\miter_cmp_prop.
+Deleting now unused module gold.serv_immdec.clk.
+Deleting now unused module gate.serv_immdec.clk.
+Deleting now unused module $paramod$3ff2128ba395265f1bcf9fe0b3f0a78cb92ce23b\miter_cmp_prop.
+Deleting now unused module $paramod$312fef812432430f5e3037abb171e2fc7c1eb252\miter_cmp_prop.
+<suppressed ~15 debug messages>
+
+8. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter.
+
+10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter..
+Removed 0 unused cells and 104 unused wires.
+<suppressed ~35 debug messages>
+
+11. Executing XPROP pass.
+
+11.1. Executing BMUXMAP pass.
+
+11.2. Executing DEMUXMAP pass.
+<suppressed ~5 debug messages>
+
+12. Executing HIERARCHY pass (managing design hierarchy).
+
+12.1. Analyzing design hierarchy..
+Top module:  \miter
+
+12.2. Analyzing design hierarchy..
+Top module:  \miter
+Removed 0 unused modules.
+Module miter directly or indirectly contains formal properties -> setting "keep" attribute.
+
+13. Executing jny backend.
+
+14. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: cdb5f9f489, CPU: user 0.04s system 0.01s, MEM: 15.12 MB peak
+Yosys 0.36+58 (git sha1 ea7818d31, clang 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 15% 2x write_rtlil (0 sec), 13% 2x write_jny (0 sec), ...

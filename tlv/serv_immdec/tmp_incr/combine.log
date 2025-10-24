@@ -1,0 +1,65 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.36+58 (git sha1 ea7818d31, clang 10.0.0-4ubuntu1 -fPIC -Os)
+
+
+-- Executing script file `tmp_incr/combine.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: tmp_incr/gold.il
+
+2. Executing UNIQUIFY pass (creating unique copies of modules).
+Created 0 unique modules.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \serv_immdec
+
+3.2. Analyzing design hierarchy..
+Top module:  \serv_immdec
+Removed 0 unused modules.
+
+4. Executing RTLIL frontend.
+Input filename: tmp_incr/gate_recoded.il
+
+5. Executing UNIQUIFY pass (creating unique copies of modules).
+Created 0 unique modules.
+
+6. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1. Analyzing design hierarchy..
+Top module:  \serv_immdec
+
+6.2. Analyzing design hierarchy..
+Top module:  \serv_immdec
+Removed 0 unused modules.
+
+7. Executing MITER pass (creating miter circuit).
+Creating miter cell "miter" with gold cell "gold.serv_immdec" and gate cell "gate.serv_immdec".
+
+8. Executing RTLIL backend.
+Output filename: tmp_incr/combined.il
+
+End of script. Logfile hash: 688f8c7f74, CPU: user 0.00s system 0.01s, MEM: 11.36 MB peak
+Yosys 0.36+58 (git sha1 ea7818d31, clang 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 34% 4x read_ilang (0 sec), 30% 2x write_ilang (0 sec), ...

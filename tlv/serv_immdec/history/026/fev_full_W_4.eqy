@@ -1,0 +1,89 @@
+############################################
+# GOLDEN DESIGN
+############################################
+[gold]
+read_verilog -sv -formal prepared.sv
+
+############################################
+# UPDATED / GATE DESIGN
+############################################
+[gate]
+read_verilog -sv -formal wip.sv
+
+[script]
+chparam -set W 4
+#prep -top serv_immdec -flatten
+hierarchy -top serv_immdec -check
+flatten
+proc -ifx
+#splitnets -ports
+clean
+setundef -anyseq
+#sim -w -clock clk -reset reset -rstlen 10 -n 10
+
+
+############################################
+# MATCHING / PARTITIONING HINTS
+############################################
+# The below section should be formatted as:
+# [match serv_immdec]
+# gold-match <gold_signal> <gate_signal>
+# ...
+# And should be followed by a blank line, marking the end of the section.
+# Gate names may use TL-Verilog pipesignal references, which will be mapped by `fev.sh`.
+[match serv_immdec]
+gold-match gen_immdec_w_eq_4.rd_addr gen_immdec_w_eq4[0].rd_addr
+gold-match gen_immdec_w_eq_4.rs1_addr gen_immdec_w_eq4[0].rs1_addr
+gold-match gen_immdec_w_eq_4.rs2_addr gen_immdec_w_eq4[0].rs2_addr
+gold-match gen_immdec_w_eq_4.signbit gen_immdec_w_eq4[0].signbit
+gold-match gen_immdec_w_eq_4.i31 gen_immdec_w_eq4[0].i31
+gold-match gen_immdec_w_eq_4.i30 gen_immdec_w_eq4[0].i30
+gold-match gen_immdec_w_eq_4.i29 gen_immdec_w_eq4[0].i29
+gold-match gen_immdec_w_eq_4.i28 gen_immdec_w_eq4[0].i28
+gold-match gen_immdec_w_eq_4.i27 gen_immdec_w_eq4[0].i27
+gold-match gen_immdec_w_eq_4.i26 gen_immdec_w_eq4[0].i26
+gold-match gen_immdec_w_eq_4.i25 gen_immdec_w_eq4[0].i25
+gold-match gen_immdec_w_eq_4.i24 gen_immdec_w_eq4[0].i24
+gold-match gen_immdec_w_eq_4.i23 gen_immdec_w_eq4[0].i23
+gold-match gen_immdec_w_eq_4.i22 gen_immdec_w_eq4[0].i22
+gold-match gen_immdec_w_eq_4.i21 gen_immdec_w_eq4[0].i21
+gold-match gen_immdec_w_eq_4.i20 gen_immdec_w_eq4[0].i20
+gold-match gen_immdec_w_eq_4.i19 gen_immdec_w_eq4[0].i19
+gold-match gen_immdec_w_eq_4.i18 gen_immdec_w_eq4[0].i18
+gold-match gen_immdec_w_eq_4.i17 gen_immdec_w_eq4[0].i17
+gold-match gen_immdec_w_eq_4.i16 gen_immdec_w_eq4[0].i16
+gold-match gen_immdec_w_eq_4.i15 gen_immdec_w_eq4[0].i15
+gold-match gen_immdec_w_eq_4.i14 gen_immdec_w_eq4[0].i14
+gold-match gen_immdec_w_eq_4.i13 gen_immdec_w_eq4[0].i13
+gold-match gen_immdec_w_eq_4.i12 gen_immdec_w_eq4[0].i12
+gold-match gen_immdec_w_eq_4.i11 gen_immdec_w_eq4[0].i11
+gold-match gen_immdec_w_eq_4.i10 gen_immdec_w_eq4[0].i10
+gold-match gen_immdec_w_eq_4.i9 gen_immdec_w_eq4[0].i9
+gold-match gen_immdec_w_eq_4.i8 gen_immdec_w_eq4[0].i8
+gold-match gen_immdec_w_eq_4.i7 gen_immdec_w_eq4[0].i7
+gold-match gen_immdec_w_eq_4.i7_2 gen_immdec_w_eq4[0].ii7_b2
+gold-match gen_immdec_w_eq_4.i20_2 gen_immdec_w_eq4[0].ii20_b2
+
+[collect *]
+# Let EQY partition automatically.
+# If you want to force grouping by register name patterns, you can uncomment:
+# group .*
+group .*
+
+[partition *]
+# It can be useful to group outputs to avoid output cut points if outputs are used internally.
+#name outputs ^o_.*
+
+
+############################################
+# STRATEGIES
+############################################
+# Disabled due to https://github.com/YosysHQ/eqy/issues/83
+#[strategy fast_sat]
+#use sat
+#depth 10
+
+[strategy sby_seq]
+use sby
+depth 20
+engine smtbmc

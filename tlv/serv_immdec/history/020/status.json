@@ -1,0 +1,5 @@
+{
+  "task": "Convert Replicated Signals to Pipesignals",
+  "fev.sh": "2: SandPiper failed for wip.tlv -> wip.sv",
+  "llm": "CONTINUING WORK: Only converted signbit so far, but there are many more replicated signals in generate-for loops that need conversion: W==1 case (imm31, imm_b19_b12_b20, imm7, imm_b30_b25, imm_b24_b20, imm_b11_b7, rd_addr, rs1_addr, rs2_addr), W!=1 case (rd_addr, rs1_addr, rs2_addr, i31-i7, ii7_b2, ii20_b2). Working on systematic conversion of all replicated signals."
+}

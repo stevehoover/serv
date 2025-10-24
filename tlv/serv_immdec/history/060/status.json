@@ -1,0 +1,5 @@
+{
+  "task": "If/Else and Case to Ternary",
+  "fev.sh": "4: Full FEV (fev_full_W_1_SHARED_0) failed",
+  "llm": "Encountered a pre-existing full FEV failure for W_1_SHARED_0 configuration. The issue is with rd_addr signal in gen_separate_imm_regs. The signal exists in both models but FEV reports they are not equivalent. This prevents continuing with the If/Else to Ternary conversion task. Need to resolve this FEV issue first."
+}

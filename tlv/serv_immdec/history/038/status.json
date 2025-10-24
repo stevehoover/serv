@@ -1,0 +1,5 @@
+{
+  "task": "Convert Replicated Signals to Pipesignals",
+  "fev.sh": "3: Failed to map TLV pipesignals to Verilog in fev.eqy. (See work in ./tmp/BCz0r/match)",
+  "llm": "Baseline restored and FEV passing. Current state has signbit already converted to pipesignal ($$signbit assignment, $signbit references). Ready to proceed with systematic conversion of remaining register signals to pipesignals. Starting with simplest register conversions first."
+}

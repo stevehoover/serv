@@ -1,0 +1,454 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.36+58 (git sha1 ea7818d31, clang 10.0.0-4ubuntu1 -fPIC -Os)
+
+
+-- Executing script file `partition.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: combined.il
+
+2. Executing INSBUF pass (insert buffer cells for connected wires).
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$91: \i_clk -> \clk
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$92: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [4] -> \o_csr_imm
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$93: \gen_immdec_w_eq1[0].imm_b11_b7 [0] -> \o_rd_addr [0]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$94: \gen_immdec_w_eq1[0].imm_b11_b7 [1] -> \o_rd_addr [1]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$95: \gen_immdec_w_eq1[0].imm_b11_b7 [2] -> \o_rd_addr [2]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$96: \gen_immdec_w_eq1[0].imm_b11_b7 [3] -> \o_rd_addr [3]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$97: \gen_immdec_w_eq1[0].imm_b11_b7 [4] -> \o_rd_addr [4]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$98: \o_csr_imm -> \o_rs1_addr [0]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$99: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [5] -> \o_rs1_addr [1]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$100: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [6] -> \o_rs1_addr [2]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$101: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [7] -> \o_rs1_addr [3]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$102: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [8] -> \o_rs1_addr [4]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$103: \gen_immdec_w_eq1[0].imm_b24_b20 [0] -> \o_rs2_addr [0]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$104: \gen_immdec_w_eq1[0].imm_b24_b20 [1] -> \o_rs2_addr [1]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$105: \gen_immdec_w_eq1[0].imm_b24_b20 [2] -> \o_rs2_addr [2]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$106: \gen_immdec_w_eq1[0].imm_b24_b20 [3] -> \o_rs2_addr [3]
+Add gold.serv_immdec/$auto$insbuf.cc:97:execute$107: \gen_immdec_w_eq1[0].imm_b24_b20 [4] -> \o_rs2_addr [4]
+Rewrite gold.serv_immdec/$ternary$feved.tlv:77$25/A: { \gen_immdec_w_eq1[0].imm_b30_b25 [0] \gen_immdec_w_eq1[0].imm_b11_b7 [4:1] } -> { \gen_immdec_w_eq1[0].imm_b30_b25 [0] \o_rd_addr [4:1] }
+Rewrite gold.serv_immdec/$ternary$feved.tlv:76$26/A: \gen_immdec_w_eq1[0].imm_b11_b7 -> \o_rd_addr
+Rewrite gold.serv_immdec/$ternary$feved.tlv:73$21/A: { \gen_immdec_w_eq1[0].imm_b30_b25 [0] \gen_immdec_w_eq1[0].imm_b24_b20 [4:1] } -> { \gen_immdec_w_eq1[0].imm_b30_b25 [0] \o_rs2_addr [4:1] }
+Rewrite gold.serv_immdec/$ternary$feved.tlv:72$22/A: \gen_immdec_w_eq1[0].imm_b24_b20 -> \o_rs2_addr
+Rewrite gold.serv_immdec/$ternary$feved.tlv:62$8/A: { $ternary$feved.tlv:62$7_Y \gen_immdec_w_eq1[0].imm_b19_b12_b20 [8:1] } -> { $ternary$feved.tlv:62$7_Y \o_rs1_addr \gen_immdec_w_eq1[0].imm_b19_b12_b20 [3:1] }
+Rewrite gold.serv_immdec/$ternary$feved.tlv:62$7/A: \gen_immdec_w_eq1[0].imm_b24_b20 [0] -> \o_rs2_addr [0]
+Rewrite gold.serv_immdec/$ternary$feved.tlv:61$9/A: \gen_immdec_w_eq1[0].imm_b19_b12_b20 -> { \o_rs1_addr \gen_immdec_w_eq1[0].imm_b19_b12_b20 [3:0] }
+Rewrite gold.serv_immdec/$ternary$feved.tlv:326$27/B: \gen_immdec_w_eq1[0].imm_b11_b7 [0] -> \o_rd_addr [0]
+Rewrite gold.serv_immdec/$ternary$feved.tlv:326$27/A: \gen_immdec_w_eq1[0].imm_b24_b20 [0] -> \o_rs2_addr [0]
+Rewrite gold.serv_immdec/$procdff$34/CLK: \i_clk -> \clk
+Rewrite gold.serv_immdec/$procdff$33/CLK: \i_clk -> \clk
+Rewrite gold.serv_immdec/$procdff$32/CLK: \i_clk -> \clk
+Rewrite gold.serv_immdec/$procdff$31/CLK: \i_clk -> \clk
+Rewrite gold.serv_immdec/$procdff$30/CLK: \i_clk -> \clk
+Rewrite gold.serv_immdec/$procdff$29/CLK: \i_clk -> \clk
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$108: \i_clk -> \clk
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$109: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [4] -> \o_csr_imm
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$110: \gen_immdec_w_eq1[0].imm_b11_b7 [0] -> \o_rd_addr [0]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$111: \gen_immdec_w_eq1[0].imm_b11_b7 [1] -> \o_rd_addr [1]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$112: \gen_immdec_w_eq1[0].imm_b11_b7 [2] -> \o_rd_addr [2]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$113: \gen_immdec_w_eq1[0].imm_b11_b7 [3] -> \o_rd_addr [3]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$114: \gen_immdec_w_eq1[0].imm_b11_b7 [4] -> \o_rd_addr [4]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$115: \o_csr_imm -> \o_rs1_addr [0]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$116: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [5] -> \o_rs1_addr [1]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$117: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [6] -> \o_rs1_addr [2]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$118: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [7] -> \o_rs1_addr [3]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$119: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [8] -> \o_rs1_addr [4]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$120: \gen_immdec_w_eq1[0].imm_b24_b20 [0] -> \o_rs2_addr [0]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$121: \gen_immdec_w_eq1[0].imm_b24_b20 [1] -> \o_rs2_addr [1]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$122: \gen_immdec_w_eq1[0].imm_b24_b20 [2] -> \o_rs2_addr [2]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$123: \gen_immdec_w_eq1[0].imm_b24_b20 [3] -> \o_rs2_addr [3]
+Add gate.serv_immdec/$auto$insbuf.cc:97:execute$124: \gen_immdec_w_eq1[0].imm_b24_b20 [4] -> \o_rs2_addr [4]
+Rewrite gate.serv_immdec/$ternary$wip.tlv:77$25/A: { \gen_immdec_w_eq1[0].imm_b30_b25 [0] \gen_immdec_w_eq1[0].imm_b11_b7 [4:1] } -> { \gen_immdec_w_eq1[0].imm_b30_b25 [0] \o_rd_addr [4:1] }
+Rewrite gate.serv_immdec/$ternary$wip.tlv:76$26/A: \gen_immdec_w_eq1[0].imm_b11_b7 -> \o_rd_addr
+Rewrite gate.serv_immdec/$ternary$wip.tlv:73$21/A: { \gen_immdec_w_eq1[0].imm_b30_b25 [0] \gen_immdec_w_eq1[0].imm_b24_b20 [4:1] } -> { \gen_immdec_w_eq1[0].imm_b30_b25 [0] \o_rs2_addr [4:1] }
+Rewrite gate.serv_immdec/$ternary$wip.tlv:72$22/A: \gen_immdec_w_eq1[0].imm_b24_b20 -> \o_rs2_addr
+Rewrite gate.serv_immdec/$ternary$wip.tlv:62$8/A: { $ternary$wip.tlv:62$7_Y \gen_immdec_w_eq1[0].imm_b19_b12_b20 [8:1] } -> { $ternary$wip.tlv:62$7_Y \o_rs1_addr \gen_immdec_w_eq1[0].imm_b19_b12_b20 [3:1] }
+Rewrite gate.serv_immdec/$ternary$wip.tlv:62$7/A: \gen_immdec_w_eq1[0].imm_b24_b20 [0] -> \o_rs2_addr [0]
+Rewrite gate.serv_immdec/$ternary$wip.tlv:61$9/A: \gen_immdec_w_eq1[0].imm_b19_b12_b20 -> { \o_rs1_addr \gen_immdec_w_eq1[0].imm_b19_b12_b20 [3:0] }
+Rewrite gate.serv_immdec/$ternary$wip.tlv:316$27/B: \gen_immdec_w_eq1[0].imm_b11_b7 [0] -> \o_rd_addr [0]
+Rewrite gate.serv_immdec/$ternary$wip.tlv:316$27/A: \gen_immdec_w_eq1[0].imm_b24_b20 [0] -> \o_rs2_addr [0]
+Rewrite gate.serv_immdec/$procdff$34/CLK: \i_clk -> \clk
+Rewrite gate.serv_immdec/$procdff$33/CLK: \i_clk -> \clk
+Rewrite gate.serv_immdec/$procdff$32/CLK: \i_clk -> \clk
+Rewrite gate.serv_immdec/$procdff$31/CLK: \i_clk -> \clk
+Rewrite gate.serv_immdec/$procdff$30/CLK: \i_clk -> \clk
+Rewrite gate.serv_immdec/$procdff$29/CLK: \i_clk -> \clk
+
+3. Executing EQY PARTITION task.
+
+3.1. Processing module pair gold.serv_immdec / gate.serv_immdec.
+
+3.1.1. Processing matched IDs for module serv_immdec.
+
+3.1.2. Create fragment partitions for module serv_immdec.
+Adding output bit \o_rs2_addr [4] to partition 0.
+Adding output bit \clk to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm31 to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm7 to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b11_b7 [0] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b11_b7 [4] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b11_b7 [3] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b11_b7 [2] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b11_b7 [1] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [0] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [8] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [7] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [6] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [5] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [4] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [3] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [2] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [1] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b24_b20 [0] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b24_b20 [4] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b24_b20 [3] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b24_b20 [2] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b24_b20 [1] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b30_b25 [0] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b30_b25 [5] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b30_b25 [4] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b30_b25 [3] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b30_b25 [2] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].imm_b30_b25 [1] to partition 0.
+Adding output bit \gen_immdec_w_eq1[0].signbit to partition 0.
+Adding output bit \o_csr_imm to partition 0.
+Adding output bit \o_imm to partition 0.
+Adding output bit \o_rd_addr [0] to partition 0.
+Adding output bit \o_rd_addr [1] to partition 0.
+Adding output bit \o_rd_addr [2] to partition 0.
+Adding output bit \o_rd_addr [3] to partition 0.
+Adding output bit \o_rd_addr [4] to partition 0.
+Adding output bit \o_rs1_addr [0] to partition 0.
+Adding output bit \o_rs1_addr [1] to partition 0.
+Adding output bit \o_rs1_addr [2] to partition 0.
+Adding output bit \o_rs1_addr [3] to partition 0.
+Adding output bit \o_rs1_addr [4] to partition 0.
+Adding output bit \o_rs2_addr [0] to partition 0.
+Adding output bit \o_rs2_addr [1] to partition 0.
+Adding output bit \o_rs2_addr [2] to partition 0.
+Adding output bit \o_rs2_addr [3] to partition 0.
+
+Final list of fragment partitions:
+  0 \o_rs2_addr [3] \o_rs2_addr [2] \o_rs2_addr [1] \o_rs2_addr [0] \o_rs1_addr [4] \o_rs1_addr [3] \o_rs1_addr [2] \o_rs1_addr [1] \o_rs1_addr [0] \o_rd_addr [4] \o_rd_addr [3] \o_rd_addr [2] \o_rd_addr [1] \o_rd_addr [0] \o_imm \o_csr_imm \gen_immdec_w_eq1[0].signbit \gen_immdec_w_eq1[0].imm_b30_b25 [1] \gen_immdec_w_eq1[0].imm_b30_b25 [2] \gen_immdec_w_eq1[0].imm_b30_b25 [3] \gen_immdec_w_eq1[0].imm_b30_b25 [4] \gen_immdec_w_eq1[0].imm_b30_b25 [5] \gen_immdec_w_eq1[0].imm_b30_b25 [0] \gen_immdec_w_eq1[0].imm_b24_b20 [1] \gen_immdec_w_eq1[0].imm_b24_b20 [2] \gen_immdec_w_eq1[0].imm_b24_b20 [3] \gen_immdec_w_eq1[0].imm_b24_b20 [4] \gen_immdec_w_eq1[0].imm_b24_b20 [0] \gen_immdec_w_eq1[0].imm_b19_b12_b20 [1] \gen_immdec_w_eq1[0].imm_b19_b12_b20 [2] \gen_immdec_w_eq1[0].imm_b19_b12_b20 [3] \gen_immdec_w_eq1[0].imm_b19_b12_b20 [4] \gen_immdec_w_eq1[0].imm_b19_b12_b20 [5] \gen_immdec_w_eq1[0].imm_b19_b12_b20 [6] \gen_immdec_w_eq1[0].imm_b19_b12_b20 [7] \gen_immdec_w_eq1[0].imm_b19_b12_b20 [8] \gen_immdec_w_eq1[0].imm_b19_b12_b20 [0] \gen_immdec_w_eq1[0].imm_b11_b7 [1] \gen_immdec_w_eq1[0].imm_b11_b7 [2] \gen_immdec_w_eq1[0].imm_b11_b7 [3] \gen_immdec_w_eq1[0].imm_b11_b7 [4] \gen_immdec_w_eq1[0].imm_b11_b7 [0] \gen_immdec_w_eq1[0].imm7 \gen_immdec_w_eq1[0].imm31 \clk \o_rs2_addr [4] <= \i_wb_rdt [15] \i_wb_rdt [14] \i_immdec_en [2] \i_wb_rdt [19] \i_wb_rdt [20] \i_wb_rdt [21] \i_wb_rdt [22] \i_immdec_en [3] \i_ctrl [3] \i_wb_rdt [18] \i_wb_rdt [12] \i_wb_rdt [11] \i_wb_rdt [10] \i_wb_rdt [9] \i_wb_rdt [8] \i_wb_rdt [7] \i_wb_rdt [6] \i_wb_rdt [5] \i_wb_rdt [13] \i_immdec_en [1] \i_ctrl [0] \i_wb_rdt [17] \i_wb_rdt [23] \i_ctrl [1] \i_csr_imm_en \i_cnt_done \i_wb_rdt [4] \i_wb_rdt [3] \i_wb_rdt [2] \i_wb_rdt [1] \i_immdec_en [0] \i_ctrl [2] \i_wb_rdt [0] \i_cnt_en \i_wb_rdt [24] \i_wb_en \i_clk \i_wb_rdt [16]
+
+3.1.3. Execute partitioning commands for module serv_immdec.
+
+Amending partitions:
+Execute queued amend rules.
+Find automatic amend rules.
+  Checking partition 0:
+    Found 0 po matches and 0 auto/pi matches.
+
+Assigning partition names:
+Automatically naming partition 0 'clk' using a PO name: clk
+
+Partition Summary:
+  Fragments:
+       0: \gen_immdec_w_eq1[0].imm_b19_b12_b20, \gen_immdec_w_eq1[0].imm_b30_b25, \o_rd_addr, \o_rs1_addr, \o_rs2_addr, \gen_immdec_w_eq1[0].imm_b11_b7, \clk, and 10 more bits
+  Partitions:
+       0: clk
+  Fragment-Partition-Matrix:
+           0          
+           0
+       0   #  clk
+  Legend for Fragment-Partition-Matrix:
+      #  .... partition is this single fragment
+      *  .... fragments merged into single partition
+      +  .... fragments amended to the partition
+      =  .... fragment is driving a partition input
+      -  .... fragment is driving an amended fragment
+      .  .... no relationship between fragment and partition
+      ,  .... unused fragment index (as result of grouping)
+
+3.1.4. Write partitions for module serv_immdec.
+Adding non-output bit \clk to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm31 to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm7 to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b11_b7 [4] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b11_b7 [3] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b11_b7 [2] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b11_b7 [1] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b11_b7 [0] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [8] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [7] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [6] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [5] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [4] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [3] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [2] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [1] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b19_b12_b20 [0] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b24_b20 [4] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b24_b20 [3] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b24_b20 [2] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b24_b20 [1] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b24_b20 [0] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b30_b25 [5] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b30_b25 [4] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b30_b25 [3] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b30_b25 [2] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b30_b25 [1] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].imm_b30_b25 [0] to partition 1.
+Adding non-output bit \gen_immdec_w_eq1[0].signbit to partition 1.
+Adding non-output bit \i_clk to partition 1.
+Adding non-output bit \i_cnt_done to partition 1.
+Adding non-output bit \i_cnt_en to partition 1.
+Adding non-output bit \i_csr_imm_en to partition 1.
+Adding non-output bit \i_ctrl [3] to partition 1.
+Adding non-output bit \i_ctrl [2] to partition 1.
+Adding non-output bit \i_ctrl [1] to partition 1.
+Adding non-output bit \i_ctrl [0] to partition 1.
+Adding non-output bit \i_immdec_en [3] to partition 1.
+Adding non-output bit \i_immdec_en [2] to partition 1.
+Adding non-output bit \i_immdec_en [1] to partition 1.
+Adding non-output bit \i_immdec_en [0] to partition 1.
+Adding non-output bit \i_wb_en to partition 1.
+Adding non-output bit \i_wb_rdt [24] to partition 1.
+Adding non-output bit \i_wb_rdt [23] to partition 1.
+Adding non-output bit \i_wb_rdt [22] to partition 1.
+Adding non-output bit \i_wb_rdt [21] to partition 1.
+Adding non-output bit \i_wb_rdt [20] to partition 1.
+Adding non-output bit \i_wb_rdt [19] to partition 1.
+Adding non-output bit \i_wb_rdt [18] to partition 1.
+Adding non-output bit \i_wb_rdt [17] to partition 1.
+Adding non-output bit \i_wb_rdt [16] to partition 1.
+Adding non-output bit \i_wb_rdt [15] to partition 1.
+Adding non-output bit \i_wb_rdt [14] to partition 1.
+Adding non-output bit \i_wb_rdt [13] to partition 1.
+Adding non-output bit \i_wb_rdt [12] to partition 1.
+Adding non-output bit \i_wb_rdt [11] to partition 1.
+Adding non-output bit \i_wb_rdt [10] to partition 1.
+Adding non-output bit \i_wb_rdt [9] to partition 1.
+Adding non-output bit \i_wb_rdt [8] to partition 1.
+Adding non-output bit \i_wb_rdt [7] to partition 1.
+Adding non-output bit \i_wb_rdt [6] to partition 1.
+Adding non-output bit \i_wb_rdt [5] to partition 1.
+Adding non-output bit \i_wb_rdt [4] to partition 1.
+Adding non-output bit \i_wb_rdt [3] to partition 1.
+Adding non-output bit \i_wb_rdt [2] to partition 1.
+Adding non-output bit \i_wb_rdt [1] to partition 1.
+Adding non-output bit \i_wb_rdt [0] to partition 1.
+Adding output bit \o_csr_imm to partition 1.
+Adding output bit \o_imm to partition 1.
+Adding output bit \o_rd_addr [4] to partition 1.
+Adding output bit \o_rd_addr [3] to partition 1.
+Adding output bit \o_rd_addr [2] to partition 1.
+Adding output bit \o_rd_addr [1] to partition 1.
+Adding output bit \o_rd_addr [0] to partition 1.
+Adding output bit \o_rs1_addr [4] to partition 1.
+Adding output bit \o_rs1_addr [3] to partition 1.
+Adding output bit \o_rs1_addr [2] to partition 1.
+Adding output bit \o_rs1_addr [1] to partition 1.
+Adding output bit \o_rs1_addr [0] to partition 1.
+Adding output bit \o_rs2_addr [4] to partition 1.
+Adding output bit \o_rs2_addr [3] to partition 1.
+Adding output bit \o_rs2_addr [2] to partition 1.
+Adding output bit \o_rs2_addr [1] to partition 1.
+Adding output bit \o_rs2_addr [0] to partition 1.
+Writing partition 0 as serv_immdec.clk.
+  partition pi bit 0: \i_wb_rdt [15] <-> \i_wb_rdt [15]
+  partition pi bit 1: \i_wb_rdt [14] <-> \i_wb_rdt [14]
+  partition pi bit 2: \i_immdec_en [2] <-> \i_immdec_en [2]
+  partition pi bit 3: \i_wb_rdt [19] <-> \i_wb_rdt [19]
+  partition pi bit 4: \i_wb_rdt [20] <-> \i_wb_rdt [20]
+  partition pi bit 5: \i_wb_rdt [21] <-> \i_wb_rdt [21]
+  partition pi bit 6: \i_wb_rdt [22] <-> \i_wb_rdt [22]
+  partition pi bit 7: \i_immdec_en [3] <-> \i_immdec_en [3]
+  partition pi bit 8: \i_ctrl [3] <-> \i_ctrl [3]
+  partition pi bit 9: \i_wb_rdt [18] <-> \i_wb_rdt [18]
+  partition pi bit 10: \i_wb_rdt [12] <-> \i_wb_rdt [12]
+  partition pi bit 11: \i_wb_rdt [11] <-> \i_wb_rdt [11]
+  partition pi bit 12: \i_wb_rdt [10] <-> \i_wb_rdt [10]
+  partition pi bit 13: \i_wb_rdt [9] <-> \i_wb_rdt [9]
+  partition pi bit 14: \i_wb_rdt [8] <-> \i_wb_rdt [8]
+  partition pi bit 15: \i_wb_rdt [7] <-> \i_wb_rdt [7]
+  partition pi bit 16: \i_wb_rdt [6] <-> \i_wb_rdt [6]
+  partition pi bit 17: \i_wb_rdt [5] <-> \i_wb_rdt [5]
+  partition pi bit 18: \i_wb_rdt [13] <-> \i_wb_rdt [13]
+  partition pi bit 19: \i_immdec_en [1] <-> \i_immdec_en [1]
+  partition pi bit 20: \i_ctrl [0] <-> \i_ctrl [0]
+  partition pi bit 21: \i_wb_rdt [17] <-> \i_wb_rdt [17]
+  partition pi bit 22: \i_wb_rdt [23] <-> \i_wb_rdt [23]
+  partition pi bit 23: \i_ctrl [1] <-> \i_ctrl [1]
+  partition pi bit 24: \i_csr_imm_en <-> \i_csr_imm_en
+  partition pi bit 25: \i_cnt_done <-> \i_cnt_done
+  partition pi bit 26: \i_wb_rdt [4] <-> \i_wb_rdt [4]
+  partition pi bit 27: \i_wb_rdt [3] <-> \i_wb_rdt [3]
+  partition pi bit 28: \i_wb_rdt [2] <-> \i_wb_rdt [2]
+  partition pi bit 29: \i_wb_rdt [1] <-> \i_wb_rdt [1]
+  partition pi bit 30: \i_immdec_en [0] <-> \i_immdec_en [0]
+  partition pi bit 31: \i_ctrl [2] <-> \i_ctrl [2]
+  partition pi bit 32: \i_wb_rdt [0] <-> \i_wb_rdt [0]
+  partition pi bit 33: \i_cnt_en <-> \i_cnt_en
+  partition pi bit 34: \i_wb_rdt [24] <-> \i_wb_rdt [24]
+  partition pi bit 35: \i_wb_en <-> \i_wb_en
+  partition pi bit 36: \i_clk <-> \i_clk
+  partition pi bit 37: \i_wb_rdt [16] <-> \i_wb_rdt [16]
+  partition po bit 0: \o_rs2_addr [3] <-> \o_rs2_addr [3]
+  partition po bit 1: \o_rs2_addr [2] <-> \o_rs2_addr [2]
+  partition po bit 2: \o_rs2_addr [1] <-> \o_rs2_addr [1]
+  partition po bit 3: \o_rs2_addr [0] <-> \o_rs2_addr [0]
+  partition po bit 4: \o_rs1_addr [4] <-> \o_rs1_addr [4]
+  partition po bit 5: \o_rs1_addr [3] <-> \o_rs1_addr [3]
+  partition po bit 6: \o_rs1_addr [2] <-> \o_rs1_addr [2]
+  partition po bit 7: \o_rs1_addr [1] <-> \o_rs1_addr [1]
+  partition po bit 8: \o_rs1_addr [0] <-> \o_rs1_addr [0]
+  partition po bit 9: \o_rd_addr [4] <-> \o_rd_addr [4]
+  partition po bit 10: \o_rd_addr [3] <-> \o_rd_addr [3]
+  partition po bit 11: \o_rd_addr [2] <-> \o_rd_addr [2]
+  partition po bit 12: \o_rd_addr [1] <-> \o_rd_addr [1]
+  partition po bit 13: \o_rd_addr [0] <-> \o_rd_addr [0]
+  partition po bit 14: \o_imm <-> \o_imm
+  partition po bit 15: \o_csr_imm <-> \o_csr_imm
+  partition po bit 16: \gen_immdec_w_eq1[0].signbit <-> \gen_immdec_w_eq1[0].signbit
+  partition po bit 17: \gen_immdec_w_eq1[0].imm_b30_b25 [1] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [1]
+  partition po bit 18: \gen_immdec_w_eq1[0].imm_b30_b25 [2] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [2]
+  partition po bit 19: \gen_immdec_w_eq1[0].imm_b30_b25 [3] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [3]
+  partition po bit 20: \gen_immdec_w_eq1[0].imm_b30_b25 [4] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [4]
+  partition po bit 21: \gen_immdec_w_eq1[0].imm_b30_b25 [5] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [5]
+  partition po bit 22: \gen_immdec_w_eq1[0].imm_b30_b25 [0] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [0]
+  partition po bit 23: \gen_immdec_w_eq1[0].imm_b24_b20 [1] <-> \gen_immdec_w_eq1[0].imm_b24_b20 [1]
+  partition po bit 24: \gen_immdec_w_eq1[0].imm_b24_b20 [2] <-> \gen_immdec_w_eq1[0].imm_b24_b20 [2]
+  partition po bit 25: \gen_immdec_w_eq1[0].imm_b24_b20 [3] <-> \gen_immdec_w_eq1[0].imm_b24_b20 [3]
+  partition po bit 26: \gen_immdec_w_eq1[0].imm_b24_b20 [4] <-> \gen_immdec_w_eq1[0].imm_b24_b20 [4]
+  partition po bit 27: \gen_immdec_w_eq1[0].imm_b24_b20 [0] <-> \gen_immdec_w_eq1[0].imm_b24_b20 [0]
+  partition po bit 28: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [1] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [1]
+  partition po bit 29: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [2] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [2]
+  partition po bit 30: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [3] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [3]
+  partition po bit 31: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [4] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [4]
+  partition po bit 32: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [5] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [5]
+  partition po bit 33: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [6] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [6]
+  partition po bit 34: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [7] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [7]
+  partition po bit 35: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [8] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [8]
+  partition po bit 36: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [0] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [0]
+  partition po bit 37: \gen_immdec_w_eq1[0].imm_b11_b7 [1] <-> \gen_immdec_w_eq1[0].imm_b11_b7 [1]
+  partition po bit 38: \gen_immdec_w_eq1[0].imm_b11_b7 [2] <-> \gen_immdec_w_eq1[0].imm_b11_b7 [2]
+  partition po bit 39: \gen_immdec_w_eq1[0].imm_b11_b7 [3] <-> \gen_immdec_w_eq1[0].imm_b11_b7 [3]
+  partition po bit 40: \gen_immdec_w_eq1[0].imm_b11_b7 [4] <-> \gen_immdec_w_eq1[0].imm_b11_b7 [4]
+  partition po bit 41: \gen_immdec_w_eq1[0].imm_b11_b7 [0] <-> \gen_immdec_w_eq1[0].imm_b11_b7 [0]
+  partition po bit 42: \gen_immdec_w_eq1[0].imm7 <-> \gen_immdec_w_eq1[0].imm7
+  partition po bit 43: \gen_immdec_w_eq1[0].imm31 <-> \gen_immdec_w_eq1[0].imm31
+  partition po bit 44: \clk <-> \clk
+  partition po bit 45: \o_rs2_addr [4] <-> \o_rs2_addr [4]
+
+3.1.5. Executing RTLIL backend.
+Output filename: partitions/serv_immdec.clk.il
+<suppressed ~2622 debug messages>
+
+3.1.6. Executing CHECK pass (checking for obvious problems).
+Checking module gate.serv_immdec.clk...
+Checking module gold.serv_immdec.clk...
+Found and reported 0 problems.
+
+Writing partition 1 as serv_immdec.
+  partition pi bit 0: \i_ctrl [0] <-> \i_ctrl [0]
+  partition pi bit 1: \i_cnt_done <-> \i_cnt_done
+  partition pi bit 2: \i_wb_rdt [17] <-> \i_wb_rdt [17]
+  partition pi bit 3: \i_wb_rdt [16] <-> \i_wb_rdt [16]
+  partition pi bit 4: \i_wb_rdt [15] <-> \i_wb_rdt [15]
+  partition pi bit 5: \i_wb_rdt [14] <-> \i_wb_rdt [14]
+  partition pi bit 6: \i_immdec_en [2] <-> \i_immdec_en [2]
+  partition pi bit 7: \i_ctrl [3] <-> \i_ctrl [3]
+  partition pi bit 8: \i_wb_rdt [12] <-> \i_wb_rdt [12]
+  partition pi bit 9: \i_wb_rdt [11] <-> \i_wb_rdt [11]
+  partition pi bit 10: \i_wb_rdt [10] <-> \i_wb_rdt [10]
+  partition pi bit 11: \i_wb_rdt [9] <-> \i_wb_rdt [9]
+  partition pi bit 12: \i_wb_rdt [8] <-> \i_wb_rdt [8]
+  partition pi bit 13: \i_wb_rdt [7] <-> \i_wb_rdt [7]
+  partition pi bit 14: \i_wb_rdt [6] <-> \i_wb_rdt [6]
+  partition pi bit 15: \i_wb_rdt [5] <-> \i_wb_rdt [5]
+  partition pi bit 16: \i_wb_rdt [13] <-> \i_wb_rdt [13]
+  partition pi bit 17: \i_immdec_en [1] <-> \i_immdec_en [1]
+  partition pi bit 18: \i_ctrl [1] <-> \i_ctrl [1]
+  partition pi bit 19: \i_ctrl [2] <-> \i_ctrl [2]
+  partition pi bit 20: \i_wb_rdt [23] <-> \i_wb_rdt [23]
+  partition pi bit 21: \i_wb_rdt [22] <-> \i_wb_rdt [22]
+  partition pi bit 22: \i_wb_rdt [21] <-> \i_wb_rdt [21]
+  partition pi bit 23: \i_wb_rdt [20] <-> \i_wb_rdt [20]
+  partition pi bit 24: \i_wb_rdt [19] <-> \i_wb_rdt [19]
+  partition pi bit 25: \i_wb_rdt [18] <-> \i_wb_rdt [18]
+  partition pi bit 26: \i_immdec_en [3] <-> \i_immdec_en [3]
+  partition pi bit 27: \i_wb_rdt [4] <-> \i_wb_rdt [4]
+  partition pi bit 28: \i_wb_rdt [3] <-> \i_wb_rdt [3]
+  partition pi bit 29: \i_wb_rdt [2] <-> \i_wb_rdt [2]
+  partition pi bit 30: \i_wb_rdt [1] <-> \i_wb_rdt [1]
+  partition pi bit 31: \i_immdec_en [0] <-> \i_immdec_en [0]
+  partition pi bit 32: \i_csr_imm_en <-> \i_csr_imm_en
+  partition pi bit 33: \i_wb_rdt [0] <-> \i_wb_rdt [0]
+  partition pi bit 34: \i_cnt_en <-> \i_cnt_en
+  partition pi bit 35: \i_wb_rdt [24] <-> \i_wb_rdt [24]
+  partition pi bit 36: \i_wb_en <-> \i_wb_en
+  partition pi bit 37: \i_clk <-> \i_clk
+  partition mp bit 0: \gen_immdec_w_eq1[0].imm_b11_b7 [0] <-> \gen_immdec_w_eq1[0].imm_b11_b7 [0]
+  partition mp bit 1: \gen_immdec_w_eq1[0].imm_b24_b20 [4] <-> \gen_immdec_w_eq1[0].imm_b24_b20 [4]
+  partition mp bit 2: \gen_immdec_w_eq1[0].imm_b24_b20 [3] <-> \gen_immdec_w_eq1[0].imm_b24_b20 [3]
+  partition mp bit 3: \gen_immdec_w_eq1[0].imm_b24_b20 [2] <-> \gen_immdec_w_eq1[0].imm_b24_b20 [2]
+  partition mp bit 4: \gen_immdec_w_eq1[0].imm_b24_b20 [1] <-> \gen_immdec_w_eq1[0].imm_b24_b20 [1]
+  partition mp bit 5: \gen_immdec_w_eq1[0].imm_b24_b20 [0] <-> \gen_immdec_w_eq1[0].imm_b24_b20 [0]
+  partition mp bit 6: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [8] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [8]
+  partition mp bit 7: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [7] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [7]
+  partition mp bit 8: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [6] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [6]
+  partition mp bit 9: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [5] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [5]
+  partition mp bit 10: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [4] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [4]
+  partition mp bit 11: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [3] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [3]
+  partition mp bit 12: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [2] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [2]
+  partition mp bit 13: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [1] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [1]
+  partition mp bit 14: \gen_immdec_w_eq1[0].imm_b19_b12_b20 [0] <-> \gen_immdec_w_eq1[0].imm_b19_b12_b20 [0]
+  partition mp bit 15: \gen_immdec_w_eq1[0].imm_b30_b25 [5] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [5]
+  partition mp bit 16: \gen_immdec_w_eq1[0].imm_b30_b25 [4] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [4]
+  partition mp bit 17: \gen_immdec_w_eq1[0].imm_b30_b25 [3] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [3]
+  partition mp bit 18: \gen_immdec_w_eq1[0].imm_b30_b25 [2] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [2]
+  partition mp bit 19: \gen_immdec_w_eq1[0].imm_b30_b25 [1] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [1]
+  partition mp bit 20: \gen_immdec_w_eq1[0].imm_b30_b25 [0] <-> \gen_immdec_w_eq1[0].imm_b30_b25 [0]
+  partition mp bit 21: \gen_immdec_w_eq1[0].imm_b11_b7 [3] <-> \gen_immdec_w_eq1[0].imm_b11_b7 [3]
+  partition mp bit 22: \gen_immdec_w_eq1[0].imm_b11_b7 [2] <-> \gen_immdec_w_eq1[0].imm_b11_b7 [2]
+  partition mp bit 23: \gen_immdec_w_eq1[0].imm_b11_b7 [1] <-> \gen_immdec_w_eq1[0].imm_b11_b7 [1]
+  partition mp bit 24: \gen_immdec_w_eq1[0].imm_b11_b7 [4] <-> \gen_immdec_w_eq1[0].imm_b11_b7 [4]
+  partition mp bit 25: \gen_immdec_w_eq1[0].signbit <-> \gen_immdec_w_eq1[0].signbit
+  partition mp bit 26: \gen_immdec_w_eq1[0].imm7 <-> \gen_immdec_w_eq1[0].imm7
+  partition mp bit 27: \gen_immdec_w_eq1[0].imm31 <-> \gen_immdec_w_eq1[0].imm31
+  partition mp bit 28: \clk <-> \clk
+  partition po bit 0: \o_rs2_addr [0] <-> \o_rs2_addr [0]
+  partition po bit 1: \o_rs2_addr [1] <-> \o_rs2_addr [1]
+  partition po bit 2: \o_rs2_addr [2] <-> \o_rs2_addr [2]
+  partition po bit 3: \o_rs2_addr [3] <-> \o_rs2_addr [3]
+  partition po bit 4: \o_rs2_addr [4] <-> \o_rs2_addr [4]
+  partition po bit 5: \o_rs1_addr [0] <-> \o_rs1_addr [0]
+  partition po bit 6: \o_rs1_addr [1] <-> \o_rs1_addr [1]
+  partition po bit 7: \o_rs1_addr [2] <-> \o_rs1_addr [2]
+  partition po bit 8: \o_rs1_addr [3] <-> \o_rs1_addr [3]
+  partition po bit 9: \o_rs1_addr [4] <-> \o_rs1_addr [4]
+  partition po bit 10: \o_rd_addr [0] <-> \o_rd_addr [0]
+  partition po bit 11: \o_rd_addr [1] <-> \o_rd_addr [1]
+  partition po bit 12: \o_rd_addr [2] <-> \o_rd_addr [2]
+  partition po bit 13: \o_rd_addr [3] <-> \o_rd_addr [3]
+  partition po bit 14: \o_rd_addr [4] <-> \o_rd_addr [4]
+  partition po bit 15: \o_imm <-> \o_imm
+  partition po bit 16: \o_csr_imm <-> \o_csr_imm
+
+3.1.7. Executing RTLIL backend.
+Output filename: modules/serv_immdec.il
+<suppressed ~790 debug messages>
+
+End of script. Logfile hash: a473ae3e3f, CPU: user 0.01s system 0.01s, MEM: 12.38 MB peak
+Yosys 0.36+58 (git sha1 ea7818d31, clang 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 47% 1x eqy_partition (0 sec), 19% 1x check (0 sec), ...

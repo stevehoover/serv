@@ -1,0 +1,1 @@
+serv_immdec serv_immdec.clk xbits : clk[0] gen_immdec_w_eq1[0].imm31[0] gen_immdec_w_eq1[0].imm7[0] gen_immdec_w_eq1[0].imm_b11_b7[4:0] gen_immdec_w_eq1[0].imm_b19_b12_b20[8:0] gen_immdec_w_eq1[0].imm_b24_b20[4:0] gen_immdec_w_eq1[0].imm_b30_b25[5:0] gen_immdec_w_eq1[0].signbit[0] o_csr_imm[0] o_imm[0] o_rd_addr[4:0] o_rs1_addr[4:0] o_rs2_addr[4:0]
