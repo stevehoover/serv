@@ -1,0 +1,9 @@
+{
+  "top": "serv_rf_ram_if",
+  "M5_configs": {
+    "WIDTH_2": "--m5def cond_width_32=0 --m5def cond_ratio_2=1",
+    "WIDTH_8": "--m5def cond_width_32=0 --m5def cond_ratio_2=0",
+    "WIDTH_32": "--m5def cond_width_32=1 --m5def cond_ratio_2=0"
+  },
+  "default_config": "WIDTH_8"
+}

@@ -1,0 +1,6 @@
+{
+    "task": "Eliminate Always Comb",
+    "fev.sh": "none",
+    "fev_cnt": 0,
+    "llm": "No always_comb or combinational always blocks found in the design. All always blocks are sequential (clocked). Task completed without changes needed."
+}

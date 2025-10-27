@@ -1,0 +1,6 @@
+{
+    "task": "TLV Macro",
+    "fev.sh": "none",
+    "fev_cnt": 0,
+    "llm": "Creating TLV macro structure. Moving all logic into a macro, keeping interface connections in the module. This allows the same logic to be used as either a module or a macro component."
+}

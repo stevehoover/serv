@@ -1,0 +1,6 @@
+{
+    "task": "Define M5 Configurations",
+    "fev.sh": "none",
+    "fev_cnt": 0,
+    "llm": "Defining M5 configurations for conditional code generation. Added M5_configs to config.json for WIDTH_2 (ratio=2), WIDTH_8 (default), and WIDTH_32 (ratio>2) scenarios. Updated fev_full_*.eqy files to use corresponding wip_*.sv files. Testing flow with configuration changes."
+}

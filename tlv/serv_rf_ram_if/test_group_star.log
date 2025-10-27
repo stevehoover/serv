@@ -1,0 +1,25 @@
+EQY 22:24:34 [./tmp/test_group_star] read_gold: starting process "yosys -ql ./tmp/test_group_star/gold.log ./tmp/test_group_star/gold.ys"
+EQY 22:24:34 [./tmp/test_group_star] read_gold: finished (returncode=0)
+EQY 22:24:34 [./tmp/test_group_star] read_gate: starting process "yosys -ql ./tmp/test_group_star/gate.log ./tmp/test_group_star/gate.ys"
+EQY 22:24:34 [./tmp/test_group_star] read_gate: finished (returncode=0)
+EQY 22:24:34 [./tmp/test_group_star] combine: starting process "yosys -ql ./tmp/test_group_star/combine.log ./tmp/test_group_star/combine.ys"
+EQY 22:24:34 [./tmp/test_group_star] combine: finished (returncode=0)
+EQY 22:24:34 [./tmp/test_group_star] partition: starting process "cd ./tmp/test_group_star; yosys -ql partition.log partition.ys"
+EQY 22:24:35 [./tmp/test_group_star] partition: finished (returncode=0)
+EQY 22:24:35 [./tmp/test_group_star] run: starting process "make -C ./tmp/test_group_star -f strategies.mk"
+EQY 22:24:35 [./tmp/test_group_star] run: make: Entering directory '/home/steve/repos/serv/tlv/serv_rf_ram_if/tmp/test_group_star'
+EQY 22:24:35 [./tmp/test_group_star] run: Running strategy 'sby_seq' on 'serv_rf_ram_if.gen_wtrig_ratio_neq_2.wtrig0_r'..
+EQY 22:24:35 [./tmp/test_group_star] run: Could not prove equivalence of partition 'serv_rf_ram_if.gen_wtrig_ratio_neq_2.wtrig0_r' using strategy 'sby_seq': partitions not equivalent
+EQY 22:24:35 [./tmp/test_group_star] run: make -f strategies.mk summary
+EQY 22:24:35 [./tmp/test_group_star] run: make[1]: Entering directory '/home/steve/repos/serv/tlv/serv_rf_ram_if/tmp/test_group_star'
+EQY 22:24:35 [./tmp/test_group_star] run: make[1]: Leaving directory '/home/steve/repos/serv/tlv/serv_rf_ram_if/tmp/test_group_star'
+EQY 22:24:35 [./tmp/test_group_star] run: make: Leaving directory '/home/steve/repos/serv/tlv/serv_rf_ram_if/tmp/test_group_star'
+EQY 22:24:35 [./tmp/test_group_star] run: finished (returncode=0)
+EQY 22:24:35 [./tmp/test_group_star] Warning: Failed to prove equivalence for 1/1 partitions:
+EQY 22:24:35 [./tmp/test_group_star] Failed to prove equivalence of partition serv_rf_ram_if.gen_wtrig_ratio_neq_2.wtrig0_r
+EQY 22:24:35 [./tmp/test_group_star] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+EQY 22:24:35 [./tmp/test_group_star] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+EQY 22:24:35 [./tmp/test_group_star] DONE (FAIL, rc=2)
+Command exited with non-zero status 2
+0.91user 0.15system 0:01.02elapsed 104%CPU (0avgtext+0avgdata 21416maxresident)k
+0inputs+8128outputs (0major+49788minor)pagefaults 0swaps

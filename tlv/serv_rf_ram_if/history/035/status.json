@@ -1,0 +1,6 @@
+{
+    "task": "Consolidate the SV-TLV Interface",
+    "fev.sh": "none",
+    "fev_cnt": 0,
+    "llm": "Creating clean SV-TLV interface. Adding input pipesignal connections at top, moving output assignments to end, replacing all internal Verilog signal usage with pipesignals."
+}
